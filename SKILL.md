@@ -303,6 +303,16 @@ Default done criteria:
 2. relevant validation completed (or explicit reason provided)
 3. no obvious must-fix leftovers remain
 
+### User Rules Contract
+
+When user-specific execution rules are provided in conversation, treat them as active rules:
+
+- continue execution for normal tasks until completion or true blockers
+- avoid asking "whether to continue" after each small step
+- prefer small, low-risk, style-consistent decisions autonomously
+- ask only for destructive operations, hard access constraints, major architecture tradeoffs, or missing critical requirements
+- after code changes, run the most relevant checks (build/test/lint/type/manual repro) and keep fixing if failures are resolvable
+
 ---
 
 ## Design Identity
