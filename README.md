@@ -1,123 +1,57 @@
-# Codebase to Course
+# repository2course
 
-A Claude Code skill that turns any codebase into a beautiful, interactive single-page HTML course.
+`repository2course` 是一个持续演进的 **Codebase -> Course 生产仓库**，目标是稳定批量产出可交付的互动课程，并把课程索引同步给独立 Portal 前端。
 
-Point it at a repo. Get back a stunning, self-contained course that teaches how the code works — with scroll-based navigation, animated visualizations, embedded quizzes, and code-with-plain-English side-by-side translations.
+## 当前定位
 
-## Who is this for?
+- 这是一个**生产仓库**，不是仅示例模板。
+- 主要产物是课程目录（`index.html` + `styles.css` + `main.js`）与批量生成脚本。
+- 仓库会持续发布 `courses-manifest.json`，供外部 Portal 自动追踪课程清单。
 
-**"Vibe coders"** — people who build software by instructing AI coding tools in natural language, without a traditional CS education.
+## 产物结构
 
-You've built something (or found something cool on GitHub). It works. But you don't really understand *how* it works under the hood. This skill generates a course that teaches you — not by lecturing, but by tracing what happens when you actually use the app.
+- `skill-install/codebase-to-course/`：Skill 规则与参考模板
+- `generate_batch_courses*.py`：分批课程生成器
+- `backfill_all_courses_once.py`：全量回灌脚本（统一重建历史课程）
+- `*-course/`：各课程目录
+- `courses-manifest.json`：机器可读课程索引
 
-**Your goals are practical, not academic:**
-- Steer AI coding tools better (make smarter architectural decisions)
-- Detect when AI is wrong (spot hallucinations, catch bad patterns)
-- Debug when AI gets stuck (break out of bug loops)
-- Talk to engineers without feeling lost
+## 关键约束（SKILL.md）
 
-You're not trying to become a software engineer. You want coding as a superpower.
+- `Source Confidence Contract`
+- `Network Fallback Contract`
+- `Quality Gate Contract`
+- `Header Link Contract`
+- `Batch Resume Contract`
+- `Anti-Homogenization Contract`
+- `Execution Discipline Contract`
 
-## What the course looks like
+这些约束用于控制批量质量、网络波动容错、以及“千仓千面”的差异化课程表达。
 
-The output is a **single HTML file** — no dependencies, no setup, works offline. It includes:
+## Portal 对接
 
-- **Scroll-based modules** with progress tracking and keyboard navigation
-- **Code ↔ Plain English translations** — real code on the left, what it means on the right
-<img width="720" alt="Code translation block" src="https://github.com/user-attachments/assets/fb9e7fac-05c1-4f98-b80c-46543ef81afc" />
+- manifest 文件：`courses-manifest.json`
+- 字段包含：
+  - `slug`
+  - `title`
+  - `repo`
+  - `path`
+  - `github_tree_url`
+  - `pages_guess_url`
+  - `updated_at`
+- 预期消费者：`repository2course-portal`（独立前端仓库）
 
-- **Animated visualizations** — data flow animations, group chat between components, architecture diagrams
-<img width="720" alt="Animated data flow" src="https://github.com/user-attachments/assets/20fb403e-7dfd-4a47-989b-bbae86ca8041" />
+## 使用方式（Claude Code Skill）
 
-- **Interactive quizzes** that test *application* not memorization ("You want to add favorites — which files change?")
-<img width="720" alt="Interactive quiz" src="https://github.com/user-attachments/assets/57706496-9fa8-457a-8450-3da22789951c" />
+1. 将 `codebase-to-course` 拷贝到 `~/.claude/skills/`
+2. 在目标项目中触发：
+   - `Turn this codebase into an interactive course`
+   - `Make a course from this project`
+   - `Explain this codebase interactively`
 
-- **Glossary tooltips** — hover any technical term for a plain-English definition
-<img width="720" alt="Glossary tooltip" src="https://github.com/user-attachments/assets/ac2f160a-d73f-4779-97b2-a06fdb5f3227" />
+## 治理
 
-  
-- **Warm, distinctive design** — not the typical purple-gradient AI look
-
-## Batch Generation Note
-
-For multi-repo runs, prefer a reusable 4-module skeleton and inject repo-specific snippets. This keeps quality and consistency stable while still preserving interactivity in each course.
-
-### Course Tracking Manifest
-
-This repo now publishes `courses-manifest.json` as a machine-readable index for portal/frontend tracking.
-
-- file: `courses-manifest.json`
-- intended consumer: external portal pages
-- update mode: refreshed after each backfill/new course batch
-
-## Reliability Contracts
-
-The skill now includes explicit execution contracts in `SKILL.md`:
-
-- Source Confidence Contract (A/B/C evidence levels)
-- Network Fallback Contract (clone -> blobless -> docs/web fallback)
-- Quality Gate Contract (module completeness criteria)
-- Header Link Contract (source repo vs custom URL policy)
-- Batch Resume Contract (dedup + resumable runs)
-- Anti-Homogenization Contract (repo-specific chat/flow/quiz content)
-- Execution Discipline Contract (continuous execution and default done criteria)
-
-## Repository Governance
-
-- License: Apache-2.0 (`LICENSE`)
-- Contributing guide: `CONTRIBUTING.md`
-- Security policy: `SECURITY.md`
-- Community behavior: `CODE_OF_CONDUCT.md`
-
-## How to use
-
-### As a Claude Code skill
-
-1. Copy the `codebase-to-course` folder into `~/.claude/skills/`
-2. Open any project in Claude Code
-3. Say: *"Turn this codebase into an interactive course"*
-
-### Trigger phrases
-
-- "Turn this into a course"
-- "Explain this codebase interactively"
-- "Make a course from this project"
-- "Teach me how this code works"
-- "Interactive tutorial from this code"
-
-## Design philosophy
-
-### Build first, understand later
-
-This inverts traditional CS education. The old way: memorize concepts for years → eventually build something → finally see the point (most people quit before step 3). This way: **build something → experience it working → now understand how it works.**
-
-### Show, don't tell
-
-Every screen is at least 50% visual. Max 2-3 sentences per text block. If something can be a diagram, animation, or interactive element — it shouldn't be a paragraph.
-
-### Quizzes test doing, not knowing
-
-No "What does API stand for?" Instead: "A user reports stale data after switching pages. Where would you look first?" Quizzes test whether you can *use* what you learned to solve a new problem.
-
-### No recycled metaphors
-
-Each concept gets a metaphor that fits *that specific idea*. A database is a library with a card catalog. Auth is a bouncer checking IDs. API rate limiting is a nightclub with a capacity limit. Never the same metaphor twice.
-
-### Original code only
-
-Code snippets are exact copies from the real codebase — never modified or simplified. The learner should be able to open the actual file and see the same code they learned from.
-
-## Skill structure
-
-```
-codebase-to-course/
-├── SKILL.md                          # Main skill instructions
-└── references/
-    ├── design-system.md              # CSS tokens, typography, colors, layout
-    └── interactive-elements.md       # Quiz, animation, and visualization patterns
-```
-
-
----
-
-Built by [Zara](https://x.com/zarazhangrui) with Claude Code.
+- License: Apache-2.0
+- Contributing: `CONTRIBUTING.md`
+- Security: `SECURITY.md`
+- Code of Conduct: `CODE_OF_CONDUCT.md`
