@@ -37,7 +37,7 @@
   - `repo`
   - `path`
   - `github_tree_url`
-  - `pages_guess_url`
+  - `course_url`
   - `updated_at`
 - 预期消费者：`repository2course-portal`（独立前端仓库）
 
