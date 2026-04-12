@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra-Orchestration 互动课程</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --color-accent:       #2A7B9B;
+      --color-accent-hover: #1F6280;
+      --color-accent-light: #E4F2F7;
+      --color-accent-muted: #5A9DB8;
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">Ultra-Orchestration 互动课程</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="这套系统在解决什么" role="tab" aria-label="模块 1"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="核心角色与分工" role="tab" aria-label="模块 2"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="一次任务如何流转" role="tab" aria-label="模块 3"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="状态与桥接契约" role="tab" aria-label="模块 4"></button>
+        <button class="nav-dot" data-target="module-5" data-tooltip="质量门禁与回路" role="tab" aria-label="模块 5"></button>
+        <button class="nav-dot" data-target="module-6" data-tooltip="安装与实战启动" role="tab" aria-label="模块 6"></button>
+      </div>
+    </div>
+  </nav>
+  <main id="main">
+
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">这套系统在解决什么</h1>
+      <p class="module-subtitle">先看目标：把 AI 协作交付从“碰运气”变成“可审计流程”。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">从产品视角看它</h2>
+        <p>把它想成一个“项目机场塔台”：每个任务不是直接起飞，而是要先过排班、航线、安检。仓库把执行拆成两个平面：<span class="term" data-definition="规范平面是长期保存业务目标、变更边界和进度状态的文档层，相当于项目账本。">OpenSpec specification plane</span> 与 <span class="term" data-definition="编排平面是控制执行顺序、质量门禁、风险动作的运行层，相当于流程调度器。">Ultra-Orchestrator execution plane</span>。</p>
+        <div class="pattern-cards">
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-1)">
+            <div class="pattern-icon" style="background:var(--color-actor-1)">📘</div>
+            <h4 class="pattern-title">OpenSpec</h4>
+            <p class="pattern-desc">管理 Program → Milestone → Change → Slice 的规格与状态。</p>
+          </div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-2)">
+            <div class="pattern-icon" style="background:var(--color-actor-2)">🎛️</div>
+            <h4 class="pattern-title">Ultra-Orchestrator</h4>
+            <p class="pattern-desc">管理 Intake → Plan → Dispatch → Execute → Review → QA → Deliver → Retro。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">读一段真实仓库代码</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">OpenSpec specification plane: Program -&gt; Milestone -&gt; Change -&gt; Slice</span>
+<span class="code-line">Ultra-Orchestrator execution plane: Intake -&gt; Plan -&gt; Dispatch -&gt; Execute -&gt; Review -&gt; QA -&gt; Deliver -&gt; Retro</span>
+<span class="code-line">This repository is the source-of-truth for the skill system, references, and orchestration methodology.</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一行在说“项目规格怎么分层”，像目录结构。</p>
+              <p class="tl">第二行在说“执行动作怎么走”，像工单流水线。</p>
+              <p class="tl">第三行在说“这里是官方基线”，不是零散脚本集合。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-accent">
+          <div class="callout-icon">💡</div>
+          <div class="callout-content">
+            <strong class="callout-title">核心洞察</strong>
+            <p>把“规格”与“执行”分开，是典型的 separation of concerns。你给 AI 下指令时，也会更容易定位“该改文档，还是该改实现”。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，这样可以避免把计划和执行混成一团，后续复盘才有证据链。" data-explanation-wrong="再想一步：如果规格和执行混在一起，失败后很难判断是需求错还是实现错。">
+            <h3 class="quiz-question">你让 AI 并行改 6 个文件，最先应该落在哪个平面？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接执行平面，先改了再说</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先规格平面，定义 Change 和 Slice 边界</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>不需要平面，靠聊天上下文记住</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">核心角色与分工</h1>
+      <p class="module-subtitle">这不是一个巨型 prompt，而是一组有边界的技能角色。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">像剧组一样分工</h2>
+        <p>可以把它想成拍电影：编剧管故事、导演管调度、后期管质检。仓库里每个 skill 都有明确职责，比如 <span class="term" data-definition="dispatch 指把可执行工作包分配到具体角色和路径，并处理冲突与依赖。">dispatch</span>、<span class="term" data-definition="QA 是质量验证阶段，关注行为是否符合预期，而不仅是代码看起来合理。">QA</span>、risk vetter。</p>
+        <div class="icon-rows">
+          <div class="icon-row"><div class="icon-circle" style="background:var(--color-actor-1)">🧭</div><div><strong>ultra-orchestrator</strong><p>主控状态机和阶段顺序</p></div></div>
+          <div class="icon-row"><div class="icon-circle" style="background:var(--color-actor-2)">🔗</div><div><strong>openspec-ultra-bridge</strong><p>把 OpenSpec 文档翻译为执行工件</p></div></div>
+          <div class="icon-row"><div class="icon-circle" style="background:var(--color-actor-3)">✅</div><div><strong>qa-verify / code-review</strong><p>分别看行为正确性与工程质量</p></div></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">角色对话动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="orchestrator" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-1)">UO</div>
+              <div class="chat-bubble"><span class="chat-sender" style="color: var(--color-actor-1)">Ultra-Orchestrator</span><p>我拿到任务了，先走 Intake 再 Plan。</p></div>
+            </div>
+            <div class="chat-message" data-msg="1" data-sender="bridge" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-2)">BR</div>
+              <div class="chat-bubble"><span class="chat-sender" style="color: var(--color-actor-2)">OpenSpec Bridge</span><p>收到，我会把 change-id 映射到 TaskManifest.id。</p></div>
+            </div>
+            <div class="chat-message" data-msg="2" data-sender="qa" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-3)">QA</div>
+              <div class="chat-bubble"><span class="chat-sender" style="color: var(--color-actor-3)">QA Verify</span><p>实现完成后我会做场景验证，不只看代码风格。</p></div>
+            </div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none">
+            <div class="chat-avatar" id="chat-module2-typing-avatar">?</div>
+            <div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">$clarify-and-intake for intake normalization</span>
+<span class="code-line">$decision-complete-planner for task graph creation</span>
+<span class="code-line">$dispatch-and-track for work package assignment and ledger updates</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先把用户需求“翻成可执行文本”。</p>
+              <p class="tl">再把任务拆成可依赖、可并行的图。</p>
+              <p class="tl">最后分发工作包并更新执行账本。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module2">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，路径重叠意味着写锁冲突，应该串行。"
+            data-explanation-wrong="关键点是 owned_paths 是否重叠，不是任务看起来是否独立。">
+            <h3 class="quiz-question">两个工作包都要改同一目录时，dispatch 最安全的做法是？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>继续并行，靠 git 冲突后再修</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>让 QA 先跑，跳过 dispatch 约束</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>标记写锁冲突并串行执行</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module2')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module2')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">一次任务如何流转</h1>
+      <p class="module-subtitle">把八阶段看成地铁线路：每一站都在降低后续返工概率。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">八阶段不是装饰</h2>
+        <p>这里的 <span class="term" data-definition="state machine 是一组有限状态和可转移规则，系统只能按规则在状态间移动。">state machine</span> 思路很硬核：阶段顺序固定，但允许回环。也就是 Review 不通过会回 Execute，QA 发现架构问题会回 Plan。</p>
+        <div class="flow-steps">
+          <div class="flow-step"><div class="flow-step-num">1</div><p>Intake</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">2</div><p>Plan</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">3</div><p>Dispatch</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">4</div><p>Execute</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">5</div><p>Review / QA / Deliver / Retro</p></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">消息流动画</h2>
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"用户提交需求"},
+          {"highlight":"flow-actor-1","label":"编排器发起计划","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"规划器输出任务图","packet":true,"from":"actor-2","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"执行器完成改动并等待审核","packet":true,"from":"actor-3","to":"actor-4"},
+          {"highlight":"flow-actor-4","label":"QA 回传通过或回退信号","packet":true,"from":"actor-4","to":"actor-1"}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🧭</div><span>Orchestrator</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">📝</div><span>Planner</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🛠️</div><span>Executor</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🔍</div><span>QA</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码翻译 + 测验</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Execute stages in this exact order:</span>
+<span class="code-line">Intake</span>
+<span class="code-line">Plan</span>
+<span class="code-line">Dispatch</span>
+<span class="code-line">Execute</span>
+<span class="code-line">Review</span>
+<span class="code-line">QA</span>
+<span class="code-line">Deliver</span>
+<span class="code-line">Retro</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先声明有“固定顺序”这个规则。</p>
+              <p class="tl">中间四步负责把任务从想法变成可检查成果。</p>
+              <p class="tl">后四步负责验收、交付、复盘，避免重复踩坑。</p>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-container" id="quiz-module3">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，Review 发现实现偏差但方向没错，回 Execute 最省成本。"
+            data-explanation-wrong="如果规划本身没问题，不必回 Plan，优先局部返工。">
+            <h3 class="quiz-question">Review 发现代码不符合既定规范，但需求本身没变，回到哪一站最合理？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>回 Execute</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>回 Intake</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接 Deliver</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module3')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module3')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-4" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">状态与桥接契约</h1>
+      <p class="module-subtitle">Change 是账本单位，Slice 是施工单位，二者不能混用。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">为什么要硬性状态词表</h2>
+        <p>把它想成物流面单：每个包裹只能处于少数固定状态，才能被全链路系统识别。这里同理，<span class="term" data-definition="canonical status 是被系统约定的标准状态词，任何统计、自动化、报表都依赖它。">canonical statuses</span> 是自动同步的前提。</p>
+        <div class="badge-list">
+          <div class="badge-item"><code class="badge-code">slice_0_not_opened</code><span class="badge-desc">尚未打开实施</span></div>
+          <div class="badge-item"><code class="badge-code">slice_0_spec_ready</code><span class="badge-desc">规格已备齐，可进入实现</span></div>
+          <div class="badge-item"><code class="badge-code">slice_1_completed ... slice_4_done</code><span class="badge-desc">从实现完成到 QA 待审再到最终完成</span></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实桥接规则代码</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Map change-id to TaskManifest.id.</span>
+<span class="code-line">Map proposal summary to goal.</span>
+<span class="code-line">Map design constraints to constraints.</span>
+<span class="code-line">Map task acceptance criteria or spec delta checks to success_criteria and acceptance_checks.</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先把变更编号绑定到执行任务主键。</p>
+              <p class="tl">再把提案摘要变成可执行目标。</p>
+              <p class="tl">把设计约束与验收规则转成机器可检字段。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <div class="callout-icon">🧩</div>
+          <div class="callout-content">
+            <strong class="callout-title">桥接不是替换</strong>
+            <p>bridge 的职责是“映射”，不是把 OpenSpec 全部重写成 Ultra 格式。这样才能保留长期文档资产。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，状态推进需要验证证据，不能只在聊天里说完成。"
+            data-explanation-wrong="注意仓库强调 ledger 同步，口头更新不等于状态更新。">
+            <h3 class="quiz-question">某 slice 已改完代码但还没验证，状态最合理的是？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接标记 slice_4_done</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>保持在 completed / qa_pending 附近并补证据</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>删除状态字段，避免冲突</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-5" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">质量门禁与反馈回路</h1>
+      <p class="module-subtitle">“能跑”不等于“可交付”，所以要把 Review、QA、Risk 拆开。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">三道关卡</h2>
+        <p>像发布会彩排：导演看节奏，品控看细节，法务看风险。这里对应 code review、QA verify、risk vetter。尤其 <span class="term" data-definition="regression 指原本正常的行为在新改动后意外变坏，常见于并发改动。">regression</span> 检查，是防止“修 A 坏 B”。</p>
+        <div class="pattern-cards">
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-1)"><div class="pattern-icon" style="background:var(--color-actor-1)">🧪</div><h4 class="pattern-title">QA Verify</h4><p class="pattern-desc">验证行为，不只看代码形状。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-2)"><div class="pattern-icon" style="background:var(--color-actor-2)">🔍</div><h4 class="pattern-title">Code Review</h4><p class="pattern-desc">检查规范、一致性、可维护性。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-4)"><div class="pattern-icon" style="background:var(--color-actor-4)">🛡️</div><h4 class="pattern-title">Risk Vetter</h4><p class="pattern-desc">高影响动作前先分级再执行。</p></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实 QA 规则代码</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Validate behavior, not just code shape.</span>
+<span class="code-line">Treat QA as two-mode verification:</span>
+<span class="code-line">Static baseline: reason over code, diffs, existing tests, and available evidence</span>
+<span class="code-line">Dynamic verification: run tests or commands when the host environment allows it</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一句强调：不要只看代码像不像“正确答案”。</p>
+              <p class="tl">第二句说 QA 有静态与动态两种模式。</p>
+              <p class="tl">后两句给出实操：能跑就跑，不能跑也要基于证据推理。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module5">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，先风险分级并加护栏，才能避免高影响误操作。"
+            data-explanation-wrong="仓库约定是高风险动作前先 vet，再决定是否要求显式批准。">
+            <h3 class="quiz-question">你准备执行破坏性命令清理目录，第一步应是什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接执行并在 Retro 里说明</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>让 QA 先通过，再删除</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先走 risk-vetter 与 safety-guard</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-6" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">安装与实战启动</h1>
+      <p class="module-subtitle">最后把知识落到动作：如何装到 Cursor 并跑一个最小闭环。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">最短上手路径</h2>
+        <p>可以把安装看成“给你的 AI 助手装一组新插件”。先拷贝 skill 目录到全局路径，再刷新上下文。这里的 <span class="term" data-definition="global installation 指一次安装后，多个项目都能复用同一套技能目录。">global installation</span> 可以避免每个项目重复配置。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="step-num">1</div><div class="step-body"><strong>复制技能目录</strong><p>把核心 skill 文件夹复制到 `C:\Users\&lt;you&gt;\.cursor\skills\`</p></div></div>
+          <div class="step-card"><div class="step-num">2</div><div class="step-body"><strong>刷新 Cursor 上下文</strong><p>重启或刷新 agent context，让新技能被索引</p></div></div>
+          <div class="step-card"><div class="step-num">3</div><div class="step-body"><strong>跑单个 change 试点</strong><p>先做一个 bounded slice，验证效率与稳定性</p></div></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实安装代码与解释</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Copy-Item -Recurse -Force .\skills\ultra-orchestrator C:\Users\&lt;you&gt;\.cursor\skills\ultra-orchestrator</span>
+<span class="code-line">Then restart Cursor or refresh agent context.</span>
+<span class="code-line">edit/update skills in this repository</span>
+<span class="code-line">validate in a real project</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一行是“把技能复制到全局目录”的命令。</p>
+              <p class="tl">第二行提醒你必须刷新编辑器上下文。</p>
+              <p class="tl">后两行说明发布节奏：先改源码，再在真实项目验证。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-warning">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-content">
+            <strong class="callout-title">常见误区</strong>
+            <p>只复制 skill 不刷新 context，经常会让你误以为“技能没生效”。先确认加载，再开始执行任务。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">毕业测验</h2>
+        <div class="quiz-container" id="quiz-module6">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，这是最小闭环：有规格边界、有执行证据、能复盘摩擦点。"
+            data-explanation-wrong="如果一次开太多 change，早期很难知道是流程问题还是范围过大。">
+            <h3 class="quiz-question">第一次在团队落地这套体系，哪个试点策略风险最低？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>单 change + 单 slice + 最小验证</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>一次打开全部里程碑并并行执行</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>跳过 QA，先追求速度</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module6')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module6')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+</body>
+</html>
+

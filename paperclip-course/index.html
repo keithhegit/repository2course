@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paperclip 互动拆解课</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --color-accent: #C06144;
+      --color-accent-hover: #9D4F37;
+      --color-accent-light: #FCEDE8;
+      --color-accent-muted: #D58A74;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text);
+      opacity: .85;
+    }
+    .repo-link:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">Paperclip 互动拆解课</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="产品价值" role="tab" aria-label="模块 1"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="关键组件" role="tab" aria-label="模块 2"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="数据流" role="tab" aria-label="模块 3"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="落地与风险" role="tab" aria-label="模块 4"></button>
+      </div>
+      <a class="repo-link" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener" aria-label="Source Link">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.22.49-2.69-1.07-2.69-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.72 1.24 1.89.88 2.35.67.07-.52.28-.88.5-1.08-1.77-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82A7.6 7.6 0 018 3.8c.68 0 1.36.09 2 .26 1.53-1.03 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.14.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+    </div>
+  </nav>
+  <main id="main">
+
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品与价值</h1>
+      <p class="module-subtitle">把多种 AI 编码代理组织成“公司”：目标、组织架构、预算、治理、审计统一在一个控制面板里。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">Monorepo layout: server + ui + cli + shared + adapters + db packages</span>
+<span class="code-line">server/src/index.ts bootstraps DB, migrations, telemetry, websocket live events</span>
+<span class="code-line">Entity scoping uses companies/companyMemberships for multi-company isolation</span>
+<span class="code-line">Adapters include claude-local/codex-local/cursor-local/openclaw-gateway/http/process</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">接手 Paperclip 后最该先验证哪条路径？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改组织架构 UI 主题</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑 onboard 到 server 启动，再看公司/代理能否创建</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先接入 5 个新模型再调试</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">把 Paperclip 看作“公司操作系统”：角色分工与治理链路是核心。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">群聊动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">BD</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">Board</span><p>我负责审批策略和风险边界。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">OR</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Orchestrator</span><p>我按目标分发任务并维持节奏。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">AD</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Adapter Runtime</span><p>我连接 OpenClaw/Codex/Claude/Cursor 执行层。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">AU</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Audit & Cost</span><p>我记录轨迹并约束预算，防止失控。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
+          <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>
+        </div>
+      </section>
+    
+<section class="screen animate-in">
+  <h2 class="screen-heading">关键配置片段</h2>
+  <div class="translation-block animate-in">
+    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">npx paperclipai onboard --yes</span>
+<span class="code-line">cli/src/commands/onboard.ts parses env and bind presets (loopback/lan/tailnet/custom)</span>
+<span class="code-line">manual dev: pnpm install && pnpm dev</span>
+<span class="code-line">root scripts expose dev/server/ui/test/db:migrate/release/e2e paths</span>
+<span class="code-line">default local API: http://localhost:3100 with embedded postgres bootstrap</span>
+    </code></pre></div>
+    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这些配置通常决定部署方式与集成成本。</p></div></div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">从业务目标到代理执行再到审计闭环。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">消息流</h2>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "公司目标被创建并分解"}, {"highlight": "flow-actor-1", "label": "目标进入编排器", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "编排器分配给具体代理通道", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "执行结果与成本回传审计层", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "管理者看到可追溯反馈并决定下一步"}]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🏢</div><span>Company Goal</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧠</div><span>Orchestrator</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🔌</div><span>Adapters</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🧾</div><span>Audit/Cost</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls"><button class="btn flow-next-btn">Next Step</button><button class="btn flow-reset-btn">Restart</button><span class="flow-progress"></span></div>
+        </div>
+      </section>
+    
+<section class="screen animate-in">
+  <h2 class="screen-heading">核心实现片段</h2>
+  <div class="translation-block animate-in">
+    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">Migration gate: inspectMigrations + applyPendingMigrations + prompt guard</span>
+<span class="code-line">Local trusted board principal auto-provisioned with instance_admin role</span>
+<span class="code-line">Telemetry wired by initTelemetry/getTelemetryClient with config toggles</span>
+<span class="code-line">CLI and server both maintain extensive test suites for routes/adapters/routines</span>
+    </code></pre></div>
+    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这里是判断性能、扩展性与可维护性的关键入口。</p></div></div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-4" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">4</span>
+      <h1 class="module-title">落地与风险</h1>
+      <p class="module-subtitle">稳定运行和风险边界同样是产品能力的一部分。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">Requirements: Node.js 20+ and pnpm 9.15+</span>
+<span class="code-line">Telemetry enabled by default and can be disabled via env or config</span>
+<span class="code-line">Startup blocks on stale migrations unless explicitly applied</span>
+<span class="code-line">Bind/public URL choices directly affect auth and exposure model</span>
+<span class="code-line">Budget/heartbeat/governance controls are core anti-runaway boundaries</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">哪项风险在 Paperclip 场景里优先级最高？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>图标风格不统一</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>迁移未应用仍强行启动 + 预算治理缺失</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>首页文案不够短</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+</body>
+</html>
+

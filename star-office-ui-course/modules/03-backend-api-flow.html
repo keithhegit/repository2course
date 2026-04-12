@@ -1,0 +1,76 @@
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">后端状态服务与接口</h1>
+      <p class="module-subtitle">Flask 后端负责“状态可信”和“页面可供给”，前端只做呈现。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">数据流动画：一次状态更新怎么走</h2>
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"脚本执行 set_state.py"},
+          {"highlight":"flow-actor-1","label":"写入 state.json","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Flask 通过 /status 读取","packet":true,"from":"actor-2","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"前端轮询并更新角色","packet":true,"from":"actor-3","to":"actor-4"},
+          {"highlight":"flow-actor-4","label":"用户看到角色移动与气泡变化"}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">📝</div><span>set_state.py</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">📦</div><span>state.json</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>Flask API</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🕹️</div><span>Phaser UI</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实代码：轮询与返回</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">const FETCH_INTERVAL = 2000;</span>
+<span class="code-line">const response = await fetch('/yesterday-memo?t=' + Date.now(), { cache: 'no-store' });</span>
+<span class="code-line">@app.route("/status", methods=["GET"])</span>
+<span class="code-line">def get_status():</span>
+<span class="code-line">    state = load_state()</span>
+<span class="code-line">    return jsonify(state)</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">前端每隔固定时间拉取最新数据。</p>
+              <p class="tl">请求参数带时间戳，减少缓存干扰。</p>
+              <p class="tl">后端 `/status` 把当前状态直接返回成 JSON。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module3">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，页面看起来卡住往往先看状态文件是否被更新。"
+            data-explanation-wrong="先改像素素材通常不能解决状态不同步问题。">
+            <h3 class="quiz-question">你看到 UI 一直显示“待命中”，排查第一步更应该看？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>state.json 是否被脚本成功写入</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先替换全部前端字体</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接重做办公室背景图</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module3')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module3')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

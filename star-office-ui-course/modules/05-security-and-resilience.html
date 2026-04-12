@@ -1,0 +1,60 @@
+<section class="module" id="module-5" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">配置安全与稳定性</h1>
+      <p class="module-subtitle">这个仓库不只会“展示状态”，还做了生产环境的安全护栏和超时策略。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">生产模式会做硬校验</h2>
+        <p>可以把它想成登机前的安检门：不合规就不能起飞。项目在生产模式下会检查密钥强度、抽屉密码强度。<span class="term" data-definition="session cookie 是服务器给浏览器的会话凭证，用于识别当前登录状态。">session cookie</span> 也启用了基础加固。</p>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">app.config.update(</span>
+<span class="code-line">    SESSION_COOKIE_HTTPONLY=True,</span>
+<span class="code-line">    SESSION_COOKIE_SAMESITE="Lax",</span>
+<span class="code-line">    SESSION_COOKIE_SECURE=is_production_mode(),</span>
+<span class="code-line">)</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">会话 Cookie 禁止被前端脚本随便读取。</p>
+              <p class="tl">跨站传递行为被限制，降低被滥用概率。</p>
+              <p class="tl">生产环境要求更严格的 HTTPS 传输。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">稳定性不是“快”，而是“可恢复”</h2>
+        <div class="pattern-cards">
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-1)"><div class="pattern-icon" style="background:var(--color-actor-1)">⏱️</div><h4 class="pattern-title">自动回 idle</h4><p class="pattern-desc">状态长期不更新会自动回待命，避免界面“假忙碌”。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-2)"><div class="pattern-icon" style="background:var(--color-actor-2)">🧵</div><h4 class="pattern-title">异步任务轮询</h4><p class="pattern-desc">长任务走后台线程 + poll，减少网关超时问题。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-4)"><div class="pattern-icon" style="background:var(--color-actor-4)">🛟</div><h4 class="pattern-title">备份与回滚</h4><p class="pattern-desc">资产替换前保存 `.bak`，出问题能快速退回上一版。</p></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module5">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，生产模式卡住通常先看安全硬校验是否触发。"
+            data-explanation-wrong="如果是生产启动失败，优先看 secret 和密码强度，不是先调 UI。">
+            <h3 class="quiz-question">服务在生产环境启动即报错，最优先排查哪类配置？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>前端像素字体是否加载</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>猫咪气泡文案长度</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>FLASK_SECRET_KEY 与抽屉密码强度</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

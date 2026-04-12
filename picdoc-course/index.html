@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PicDoc 互动拆解课</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --color-accent: #7A66D1;
+      --color-accent-hover: #604FB5;
+      --color-accent-light: #F0ECFD;
+      --color-accent-muted: #9B8AE0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text);
+      opacity: .85;
+    }
+    .repo-link:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">PicDoc 互动拆解课</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="产品价值" role="tab" aria-label="模块 1"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="关键组件" role="tab" aria-label="模块 2"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="数据流" role="tab" aria-label="模块 3"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="落地与风险" role="tab" aria-label="模块 4"></button>
+      </div>
+      <a class="repo-link" href="https://www.picdoc.cn/" target="_blank" rel="noopener" aria-label="Source Link">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.22.49-2.69-1.07-2.69-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.72 1.24 1.89.88 2.35.67.07-.52.28-.88.5-1.08-1.77-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82A7.6 7.6 0 018 3.8c.68 0 1.36.09 2 .26 1.53-1.03 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.14.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+    </div>
+  </nav>
+  <main id="main">
+
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品与价值</h1>
+      <p class="module-subtitle">PicDoc 把长文本一键转成信息图和结构图，用于表达、脑暴、笔记和团队协作。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">文本转视觉</span>
+<span class="code-line">支持导出文档和图片</span>
+<span class="code-line">适配 Word / PPT 场景</span>
+<span class="code-line">多语种内容管理</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">接手 PicDoc 互动拆解课，最优先验证哪条主链路？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先全量替换目录结构</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑通 `团队白板协作示意` 对应的最小可用路径</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先做视觉重构后再看运行</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">PicDoc 互动拆解课 的关键是分层协作与边界清晰。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">群聊动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">UI</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">UI Layer</span><p>我负责交互输入与反馈展示。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">API</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Service API</span><p>我承接请求并做业务编排。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">CORE</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Domain Core</span><p>我执行业务规则与关键计算。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">DB</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Data Layer</span><p>我持久化状态并支持查询。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
+          <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>
+        </div>
+      </section>
+    
+<section class="screen animate-in">
+  <h2 class="screen-heading">关键配置片段</h2>
+  <div class="translation-block animate-in">
+    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">团队白板协作示意</span>
+<span class="code-line">图文脑暴生成</span>
+<span class="code-line">日常灵感笔记沉淀</span>
+<span class="code-line">快速分享给团队</span>
+    </code></pre></div>
+    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这些配置通常决定部署方式与集成成本。</p></div></div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">PicDoc 互动拆解课 的主执行链路。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">消息流</h2>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "用户触发功能"}, {"highlight": "flow-actor-1", "label": "请求进入服务入口", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "核心逻辑执行", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "结果持久化并回传", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "用户看到可操作反馈"}]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">👤</div><span>PicDoc 互动拆解课 User</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🌐</div><span>PicDoc 互动拆解课 Interface</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🧠</div><span>PicDoc 互动拆解课 Core</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">💾</div><span>PicDoc 互动拆解课 Result</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls"><button class="btn flow-next-btn">Next Step</button><button class="btn flow-reset-btn">Restart</button><span class="flow-progress"></span></div>
+        </div>
+      </section>
+    
+<section class="screen animate-in">
+  <h2 class="screen-heading">核心实现片段</h2>
+  <div class="translation-block animate-in">
+    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">典型价值: 降低配图和流程图制作成本</span>
+<span class="code-line">典型用户: 科技博主/产品经理/销售顾问/开发者</span>
+<span class="code-line">核心收益: 长文图文化、可视化表达</span>
+    </code></pre></div>
+    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这里是判断性能、扩展性与可维护性的关键入口。</p></div></div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-4" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">4</span>
+      <h1 class="module-title">落地与风险</h1>
+      <p class="module-subtitle">稳定运行和风险边界同样是产品能力的一部分。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">应用侧重点: 信息表达效率</span>
+<span class="code-line">非代码仓库来源: 官网产品信息</span>
+<span class="code-line">适合做产品拆解与场景课程</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">PicDoc 互动拆解课 扩展前最该先做什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>并行改动所有模块</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先建立边界检查、回归与回滚路径</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接上线后再补风险控制</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+</body>
+</html>
+

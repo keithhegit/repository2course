@@ -1,0 +1,74 @@
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">这套系统在解决什么</h1>
+      <p class="module-subtitle">先看目标：把 AI 协作交付从“碰运气”变成“可审计流程”。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">从产品视角看它</h2>
+        <p>把它想成一个“项目机场塔台”：每个任务不是直接起飞，而是要先过排班、航线、安检。仓库把执行拆成两个平面：<span class="term" data-definition="规范平面是长期保存业务目标、变更边界和进度状态的文档层，相当于项目账本。">OpenSpec specification plane</span> 与 <span class="term" data-definition="编排平面是控制执行顺序、质量门禁、风险动作的运行层，相当于流程调度器。">Ultra-Orchestrator execution plane</span>。</p>
+        <div class="pattern-cards">
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-1)">
+            <div class="pattern-icon" style="background:var(--color-actor-1)">📘</div>
+            <h4 class="pattern-title">OpenSpec</h4>
+            <p class="pattern-desc">管理 Program → Milestone → Change → Slice 的规格与状态。</p>
+          </div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-2)">
+            <div class="pattern-icon" style="background:var(--color-actor-2)">🎛️</div>
+            <h4 class="pattern-title">Ultra-Orchestrator</h4>
+            <p class="pattern-desc">管理 Intake → Plan → Dispatch → Execute → Review → QA → Deliver → Retro。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">读一段真实仓库代码</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">OpenSpec specification plane: Program -&gt; Milestone -&gt; Change -&gt; Slice</span>
+<span class="code-line">Ultra-Orchestrator execution plane: Intake -&gt; Plan -&gt; Dispatch -&gt; Execute -&gt; Review -&gt; QA -&gt; Deliver -&gt; Retro</span>
+<span class="code-line">This repository is the source-of-truth for the skill system, references, and orchestration methodology.</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一行在说“项目规格怎么分层”，像目录结构。</p>
+              <p class="tl">第二行在说“执行动作怎么走”，像工单流水线。</p>
+              <p class="tl">第三行在说“这里是官方基线”，不是零散脚本集合。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-accent">
+          <div class="callout-icon">💡</div>
+          <div class="callout-content">
+            <strong class="callout-title">核心洞察</strong>
+            <p>把“规格”与“执行”分开，是典型的 separation of concerns。你给 AI 下指令时，也会更容易定位“该改文档，还是该改实现”。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，这样可以避免把计划和执行混成一团，后续复盘才有证据链。" data-explanation-wrong="再想一步：如果规格和执行混在一起，失败后很难判断是需求错还是实现错。">
+            <h3 class="quiz-question">你让 AI 并行改 6 个文件，最先应该落在哪个平面？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接执行平面，先改了再说</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先规格平面，定义 Change 和 Slice 边界</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>不需要平面，靠聊天上下文记住</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

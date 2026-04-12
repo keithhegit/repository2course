@@ -1,0 +1,67 @@
+<section class="module" id="module-6" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">部署与扩展路径</h1>
+      <p class="module-subtitle">最后把“能在本地跑”升级成“能稳定分享和协作”。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">从本地到公网的最小闭环</h2>
+        <p>这套项目给了两条路线：Cloudflare Tunnel 快速分享、或自有域名/反向代理长期运行。对协作团队更重要的是可观测性：`/health`、`/agents`、`/status` 要能稳定响应。</p>
+        <div class="badge-list">
+          <div class="badge-item"><code class="badge-code">GET /health</code><span class="badge-desc">看服务是否在线</span></div>
+          <div class="badge-item"><code class="badge-code">GET /agents</code><span class="badge-desc">看多 Agent 当前状态</span></div>
+          <div class="badge-item"><code class="badge-code">POST /set_state</code><span class="badge-desc">手动切换主状态用于演示/排障</span></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实代码：状态脚本入口</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">state_name = sys.argv[1]</span>
+<span class="code-line">if state_name not in VALID_STATES:</span>
+<span class="code-line">    print(f"无效状态: {state_name}")</span>
+<span class="code-line">state["state"] = state_name</span>
+<span class="code-line">state["updated_at"] = datetime.now().isoformat()</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">脚本先从命令行拿到状态参数。</p>
+              <p class="tl">再检查是不是允许的状态词。</p>
+              <p class="tl">最后写入状态和时间戳，供前端读取。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <div class="callout-icon">🧭</div>
+          <div class="callout-content">
+            <strong class="callout-title">你可以怎么扩展</strong>
+            <p>如果你要接入自己的 Agent 系统，只需要让它按约定周期调用 `/agent-push`，而不是改整套前端渲染逻辑。</p>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">毕业测验</h2>
+        <div class="quiz-container" id="quiz-module6">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，先验证服务和状态链路，再做装饰优化，风险最低。"
+            data-explanation-wrong="先做视觉改造会掩盖真实链路问题，排障更难。">
+            <h3 class="quiz-question">你要给团队上线一套办公室看板，最稳妥的顺序是？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先验证 /health 与状态推送，再做素材与装修</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先全量换美术，再排查状态接口</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接跳过后端，只保留静态页面</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module6')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module6')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

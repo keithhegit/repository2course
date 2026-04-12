@@ -1,0 +1,36 @@
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">Clicky 互动拆解课 的主执行链路。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">消息流</h2>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "用户输入命令"}, {"highlight": "flow-actor-1", "label": "参数进入解析层", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "路由到子命令执行器", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "结果格式化输出", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "用户得到可读结果"}]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">⌨️</div><span>CLI Input</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>Parser/Router</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>Command Exec</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">📤</div><span>Output</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls"><button class="btn flow-next-btn">Next Step</button><button class="btn flow-reset-btn">Restart</button><span class="flow-progress"></span></div>
+        </div>
+      </section>
+    
+<section class="screen animate-in">
+  <h2 class="screen-heading">核心实现片段</h2>
+  <div class="translation-block animate-in">
+    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">CompanionManager.swift</span>
+<span class="code-line">ClaudeAPI.swift (SSE streaming)</span>
+<span class="code-line">AssemblyAIStreamingTranscriptionProvider.swift</span>
+<span class="code-line">ElevenLabsTTSClient.swift</span>
+<span class="code-line">OverlayWindow.swift (pointer rendering)</span>
+    </code></pre></div>
+    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这里是判断性能、扩展性与可维护性的关键入口。</p></div></div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</section>

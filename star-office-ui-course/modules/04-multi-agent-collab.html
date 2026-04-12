@@ -1,0 +1,71 @@
+<section class="module" id="module-4" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">多 Agent 协作机制</h1>
+      <p class="module-subtitle">这个项目最有意思的部分是“加入、鉴权、并发上限、离线回收”这一整套闭环。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">像门禁系统一样控制加入</h2>
+        <p>你可以把 join key 看成临时门票。后端会检查 key 是否有效、是否过期、当前并发是否超上限，再决定是否让新 Agent 进入办公室。这里的 <span class="term" data-definition="concurrency limit 是同一时刻允许同时在线的最大数量，用来防止系统被瞬时挤爆。">concurrency limit</span> 默认是 3。</p>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">max_concurrent = int(key_item.get("maxConcurrent", 3))</span>
+<span class="code-line">if active_count >= max_concurrent:</span>
+<span class="code-line">    return jsonify({"ok": False, "msg": f"该接入密钥当前并发已达上限（{max_concurrent}）"}), 429</span>
+<span class="code-line">target["authStatus"] = "approved"</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先读取这把 key 允许的并发人数。</p>
+              <p class="tl">如果当前活跃人数超限，直接拒绝并返回 429。</p>
+              <p class="tl">通过后才会把该 Agent 置为 approved。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">协作角色对话</h2>
+        <div class="chat-window" id="chat-module4">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="guest" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">AG</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">访客 Agent</span><p>我带着 join key 来加入办公室。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="api" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">API</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">/join-agent</span><p>先验 key，再检查并发与过期时间。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="push" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">↻</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">/agent-push</span><p>授权后你每 15 秒推一次状态就行。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module4-typing" style="display:none">
+            <div class="chat-avatar" id="chat-module4-typing-avatar">?</div>
+            <div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，先看 join key 并发与过期策略，避免误判成网络问题。"
+            data-explanation-wrong="多人无法进入通常先检查接入策略，而不是先改动画或贴图。">
+            <h3 class="quiz-question">团队反馈“第四个 Agent 总是进不来”，你先检查什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先删除所有历史 memo 文件</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>join key 的 maxConcurrent 与 active_count</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先替换猫咪素材</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
