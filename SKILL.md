@@ -209,12 +209,23 @@ After running the appropriate build script (`build.sh` or `build.ps1`), open `in
 
 When users ask for many repositories in one run, keep quality stable with these rules:
 
-- **Prefer one reusable module skeleton** (intro, actors, flow, operations), then inject repo-specific snippets.
+- **Use a reusable structure, not reusable content**: module order can be reused, but actor names, flow nodes, flow steps, quiz prompts/options, and examples must be repo-specific.
 - **Keep each course 4-6 modules**. For high-volume runs, 4 modules is the default safe minimum.
 - **Maintain mandatory interactivity per course:** at least one chat animation, one flow animation, one quiz per module, one translation block per module, and tooltip usage.
 - **Add repository back-link in the header when requested**: use a GitHub icon anchor to the original repository URL (not an internal mirror).
 - **Build after every course write**: run `build.ps1`/`build.sh` immediately and fix encoding issues before moving to the next course.
 - **Use UTF-8 explicitly on Windows build path** to avoid Chinese text corruption in `index.html`.
+
+### Anti-Homogenization Contract
+
+For every repository course, treat the following as non-reusable content:
+
+- **Flow animation actors and labels** must map to that repository's real architecture (e.g., API Gateway / Queue / Worker / Store), not generic `User -> Entry -> Core -> UI`.
+- **Quiz prompts and options** must be tied to that repository's failure modes or onboarding decisions, not global default wording.
+- **Chat animation roles** must reflect actual modules or responsibilities in that codebase.
+- **At least 2 module headings or subtitles** should include repository-specific terminology from source evidence.
+
+If any of the above remains generic, mark the course as **draft** and regenerate before delivery.
 
 ### Source Confidence Contract
 
@@ -261,6 +272,36 @@ For long multi-repo runs, keep resumable execution behavior:
 - skip already built course directories unless user asks to overwrite
 - rebuild only failed/missing targets by default
 - report deduplication when identical repository URLs appear multiple times in one batch
+
+### Execution Discipline Contract
+
+Default execution mode for normal requests:
+
+1. understand context
+2. if needed, provide a brief plan
+3. implement changes
+4. run relevant checks/tests/build
+5. if issues are found, continue fixing
+6. stop only when complete or truly blocked
+
+Decision rules:
+
+- make low-risk, small-scope decisions autonomously
+- prefer the smallest correct change aligned with existing style and architecture
+- avoid unrelated refactors or scope expansion
+
+Ask user only when:
+
+- operation is destructive or irreversible
+- blocked by permission/sandbox/credentials/external access
+- multiple materially different options affect cost/risk/architecture
+- critical requirements are missing and continuation is likely wrong
+
+Default done criteria:
+
+1. requested goal is implemented
+2. relevant validation completed (or explicit reason provided)
+3. no obvious must-fix leftovers remain
 
 ---
 
