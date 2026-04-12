@@ -42,6 +42,14 @@ The output is a **single HTML file** — no dependencies, no setup, works offlin
 
 For multi-repo runs, prefer a reusable 4-module skeleton and inject repo-specific snippets. This keeps quality and consistency stable while still preserving interactivity in each course.
 
+### Course Tracking Manifest
+
+This repo now publishes `courses-manifest.json` as a machine-readable index for portal/frontend tracking.
+
+- file: `courses-manifest.json`
+- intended consumer: external portal pages
+- update mode: refreshed after each backfill/new course batch
+
 ## Reliability Contracts
 
 The skill now includes explicit execution contracts in `SKILL.md`:
@@ -51,6 +59,8 @@ The skill now includes explicit execution contracts in `SKILL.md`:
 - Quality Gate Contract (module completeness criteria)
 - Header Link Contract (source repo vs custom URL policy)
 - Batch Resume Contract (dedup + resumable runs)
+- Anti-Homogenization Contract (repo-specific chat/flow/quiz content)
+- Execution Discipline Contract (continuous execution and default done criteria)
 
 ## Repository Governance
 
