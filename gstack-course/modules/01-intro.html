@@ -2,35 +2,36 @@
   <div class="module-content">
     <header class="module-header animate-in">
       <span class="module-number">1</span>
-      <h1 class="module-title">产品与价值</h1>
-      <p class="module-subtitle">gstack 把 Claude Code 组织成“虚拟工程团队”，用技能链覆盖从规划到交付的完整冲刺流程。</p>
+      <h1 class="module-title">产品方法论</h1>
+      <p class="module-subtitle">gstack 不是“23 个命令合集”，而是一条把创意、评审、实现、测试、发布串成单一冲刺流水线的方法论系统。</p>
     </header>
     <div class="module-body">
       <section class="screen animate-in">
-        <h2 class="screen-heading">代码与规则片段</h2>
+        <h2 class="screen-heading">为什么它不是普通命令集合</h2>
         <div class="translation-block animate-in">
           <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
 <span class="code-line">/office-hours</span>
 <span class="code-line">/plan-ceo-review</span>
+<span class="code-line">/plan-eng-review</span>
 <span class="code-line">/review</span>
 <span class="code-line">/qa</span>
 <span class="code-line">/ship</span>
           </code></pre></div>
           <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
-            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
-            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+            <p class="tl">这组命令不是平铺摆放的工具箱，而是按冲刺顺序排列的角色链。</p>
+            <p class="tl">`/office-hours` 先把模糊需求改写成真正的问题定义，`/plan-*` 再把产品和工程前提锁死，后面的 `/review`、`/qa`、`/ship` 才不是盲修盲测。</p>
           </div></div>
         </div>
       </section>
       <section class="screen animate-in">
         <h2 class="screen-heading">应用测验</h2>
         <div class="quiz-container" id="quiz-module-1">
-          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
-            <h3 class="quiz-question">要快速建立 gstack 互动拆解课 的真实认知，优先动作是？</h3>
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对。gstack 的入口价值不在“先写代码”，而在先把问题重构成更值得做、也更可实现的版本。" data-explanation-wrong="关键不是先动手实现，而是先验证它的产品重构链是否成立。">
+            <h3 class="quiz-question">第一次判断 gstack 值不值得继续深挖，最该先跑哪条主路径？</h3>
             <div class="quiz-options">
-              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先抽象未来架构图</span></button>
-              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑官方最小流程并定位关键日志点</span></button>
-              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先把测试全部跳过</span></button>
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接让它实现一个大功能，看写代码速度</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑 `/office-hours` 到 `/plan-ceo-review`，看它会不会重构问题定义</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先只看 `/ship` 会不会自动开 PR</span></button>
             </div>
             <div class="quiz-feedback"></div>
           </div>

@@ -1,33 +1,36 @@
 <section class="module" id="module-3" style="background: var(--color-bg-warm)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">gstack 互动拆解课 的执行链路来自仓库片段映射。</p></header>
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">浏览器底座与执行链路</h1><p class="module-subtitle">gstack 的方法论之所以能成立，是因为它不只是一堆 Markdown 技能；它还有一个低延迟、可持久化的浏览器运行时来支撑 QA、设计审查和网页调试。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">消息流</h2>
-        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "/office-hours"}, {"highlight": "flow-actor-1", "label": "/plan-ceo-review", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "/review", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "/qa", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "gstack 互动拆解课 完成一轮可观测闭环"}]'>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "Claude Code 触发 $B snapshot -i 或 /qa"}, {"highlight": "flow-actor-1", "label": "CLI 读取 .gstack/browse.json 并定位 daemon", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "编译后的 gstack 二进制 POST /command 到 Bun.serve", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "服务端通过 CDP 驱动持久 Chromium 并保留 cookies/tabs", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "结果以纯文本返回给上层技能，继续进入 review/qa/ship"}]'>
           <div class="flow-actors">
-            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🧩</div><span>/office-hours</span></div>
-            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>/plan-ceo-review</span></div>
-            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>/review</span></div>
-            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🧾</div><span>/qa</span></div>
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🤖</div><span>Claude Code</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧰</div><span>CLI Binary</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚡</div><span>Bun Server</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🌐</div><span>Chromium</span></div>
           </div>
           <div class="flow-packet" id="flow-packet"></div>
           <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
           <div class="flow-controls"><button class="btn flow-next-btn">Next Step</button><button class="btn flow-reset-btn">Restart</button><span class="flow-progress"></span></div>
         </div>
       </section>
-    
-<section class="screen animate-in">
-  <h2 class="screen-heading">核心实现片段</h2>
-  <div class="translation-block animate-in">
-    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
-<span class="code-line">Think -> Plan -> Build -> Review -> Test -> Ship -> Reflect</span>
-<span class="code-line">每个技能消费上游产物并产出下游输入</span>
-    </code></pre></div>
-    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这里是判断性能、扩展性与可维护性的关键入口。</p></div></div>
-  </div>
-</section>
-
+      <section class="screen animate-in">
+        <h2 class="screen-heading">为什么这个底座决定了课程价值</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">{ "pid": 12345, "port": 34567, "token": "uuid-v4", "binaryVersion": "abc123" }</span>
+<span class="code-line">Bun.serve()</span>
+<span class="code-line">Authorization: Bearer &lt;token&gt;</span>
+<span class="code-line">First call ~3s, later calls ~100-200ms</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">`browse.json` 是技能与浏览器之间的接线板，记录当前 daemon 的 PID、端口和鉴权令牌。</p>
+            <p class="tl">Bun 服务常驻后，后续 QA 与浏览器操作不必反复冷启动；这正是 gstack 能把“计划审查”和“真实浏览器验证”连成闭环的底层原因。</p>
+          </div></div>
+        </div>
+      </section>
     </div>
   </div>
 </section>

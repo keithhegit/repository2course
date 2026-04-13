@@ -1,33 +1,35 @@
 <section class="module" id="module-2" style="background: var(--color-bg)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">gstack 互动拆解课 的协作角色来自仓库真实片段，而非固定模板。</p></header>
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色协同与团队模式</h1><p class="module-subtitle">gstack 的关键不是“谁会写代码”，而是每个角色都消费上游产物并生成下游输入，像真实团队一样交接上下文。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">群聊动画</h2>
         <div class="chat-window" id="chat-module2">
           <div class="chat-messages">
-            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">OFF</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">/office-hours</span><p>我负责 /office-hours。</p></div></div>
-            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">PLA</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">/plan-ceo-review</span><p>我处理 /plan-ceo-review。</p></div></div>
-            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">REV</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">/review</span><p>我推进 /review。</p></div></div>
-            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">QA</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">/qa</span><p>我保障 /qa。</p></div></div>
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">OFF</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">/office-hours</span><p>我先追问真实痛点，把“想做的功能”改写成“真正的产品工作”。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">CEO</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">/plan-ceo-review</span><p>我挑战范围和方向，找出这个需求背后更像 10-star 产品的版本。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">ENG</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">/plan-eng-review</span><p>我把愿景落到架构、状态机、失败路径和测试矩阵，防止实现阶段靠猜。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">QA</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">/qa</span><p>我用真实浏览器回归验证，并把 bug 修复与回归测试一起补上。</p></div></div>
           </div>
           <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
           <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>
         </div>
       </section>
-    
-<section class="screen animate-in">
-  <h2 class="screen-heading">关键配置片段</h2>
-  <div class="translation-block animate-in">
-    <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
-<span class="code-line">git clone --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack</span>
-<span class="code-line">cd ~/.claude/skills/gstack && ./setup</span>
-<span class="code-line">./setup --team</span>
-    </code></pre></div>
-    <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines"><p class="tl">这些配置通常决定部署方式与集成成本。</p></div></div>
-  </div>
-</section>
-
+      <section class="screen animate-in">
+        <h2 class="screen-heading">团队模式安装片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack</span>
+<span class="code-line">cd ~/.claude/skills/gstack && ./setup --team</span>
+<span class="code-line">~/.claude/skills/gstack/bin/gstack-team-init required</span>
+<span class="code-line">git add .claude/ CLAUDE.md</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这里体现的是“全员共享方法论”而不是把一堆提示词 vendoring 进仓库。</p>
+            <p class="tl">个人全局安装负责自动升级，项目内只保留最薄的一层接线配置，让团队里的 Claude Code 会话默认按同一套流程协作。</p>
+          </div></div>
+        </div>
+      </section>
     </div>
   </div>
 </section>
