@@ -1,0 +1,42 @@
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品与价值</h1>
+      <p class="module-subtitle">把多种 AI 编码代理组织成“公司”：目标、组织架构、预算、治理、审计统一在一个控制面板里。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">Monorepo layout: server + ui + cli + shared + adapters + db packages</span>
+<span class="code-line">server/src/index.ts bootstraps DB, migrations, telemetry, websocket live events</span>
+<span class="code-line">Entity scoping uses companies/companyMemberships for multi-company isolation</span>
+<span class="code-line">Adapters include claude-local/codex-local/cursor-local/openclaw-gateway/http/process</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">接手 Paperclip 后最该先验证哪条路径？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改组织架构 UI 主题</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑 onboard 到 server 启动，再看公司/代理能否创建</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先接入 5 个新模型再调试</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

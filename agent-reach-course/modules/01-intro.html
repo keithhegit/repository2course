@@ -1,0 +1,42 @@
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品与价值</h1>
+      <p class="module-subtitle">重点不是重造所有渠道，而是把上游工具的选型、安装、诊断和技能接线一次性做好。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">Agent Reach is scaffolding, not a wrapper framework</span>
+<span class="code-line">channels/ maps platforms to upstream tools like Jina Reader, twitter-cli, yt-dlp, gh CLI, rdt-cli, mcporter MCP</span>
+<span class="code-line">agent-reach doctor checks which channels are usable and how to fix them</span>
+<span class="code-line">Installed SKILL.md teaches the agent which upstream tool to call for each request type</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">判断 Agent Reach 值不值得装，最先该验证什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先看它支持多少平台图标</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先完成最小安装并运行 doctor，看常用渠道是否真的通了</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先把所有 channel 改写成统一 API</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

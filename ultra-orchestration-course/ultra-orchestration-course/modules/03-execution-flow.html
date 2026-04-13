@@ -1,0 +1,90 @@
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">一次任务如何流转</h1>
+      <p class="module-subtitle">把八阶段看成地铁线路：每一站都在降低后续返工概率。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">八阶段不是装饰</h2>
+        <p>这里的 <span class="term" data-definition="state machine 是一组有限状态和可转移规则，系统只能按规则在状态间移动。">state machine</span> 思路很硬核：阶段顺序固定，但允许回环。也就是 Review 不通过会回 Execute，QA 发现架构问题会回 Plan。</p>
+        <div class="flow-steps">
+          <div class="flow-step"><div class="flow-step-num">1</div><p>Intake</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">2</div><p>Plan</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">3</div><p>Dispatch</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">4</div><p>Execute</p></div><div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="flow-step-num">5</div><p>Review / QA / Deliver / Retro</p></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">消息流动画</h2>
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"用户提交需求"},
+          {"highlight":"flow-actor-1","label":"编排器发起计划","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"规划器输出任务图","packet":true,"from":"actor-2","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"执行器完成改动并等待审核","packet":true,"from":"actor-3","to":"actor-4"},
+          {"highlight":"flow-actor-4","label":"QA 回传通过或回退信号","packet":true,"from":"actor-4","to":"actor-1"}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🧭</div><span>Orchestrator</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">📝</div><span>Planner</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🛠️</div><span>Executor</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🔍</div><span>QA</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码翻译 + 测验</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Execute stages in this exact order:</span>
+<span class="code-line">Intake</span>
+<span class="code-line">Plan</span>
+<span class="code-line">Dispatch</span>
+<span class="code-line">Execute</span>
+<span class="code-line">Review</span>
+<span class="code-line">QA</span>
+<span class="code-line">Deliver</span>
+<span class="code-line">Retro</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先声明有“固定顺序”这个规则。</p>
+              <p class="tl">中间四步负责把任务从想法变成可检查成果。</p>
+              <p class="tl">后四步负责验收、交付、复盘，避免重复踩坑。</p>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-container" id="quiz-module3">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，Review 发现实现偏差但方向没错，回 Execute 最省成本。"
+            data-explanation-wrong="如果规划本身没问题，不必回 Plan，优先局部返工。">
+            <h3 class="quiz-question">Review 发现代码不符合既定规范，但需求本身没变，回到哪一站最合理？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>回 Execute</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>回 Intake</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接 Deliver</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module3')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module3')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

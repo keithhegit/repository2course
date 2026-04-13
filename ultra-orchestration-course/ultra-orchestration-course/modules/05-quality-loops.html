@@ -1,0 +1,62 @@
+<section class="module" id="module-5" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">质量门禁与反馈回路</h1>
+      <p class="module-subtitle">“能跑”不等于“可交付”，所以要把 Review、QA、Risk 拆开。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">三道关卡</h2>
+        <p>像发布会彩排：导演看节奏，品控看细节，法务看风险。这里对应 code review、QA verify、risk vetter。尤其 <span class="term" data-definition="regression 指原本正常的行为在新改动后意外变坏，常见于并发改动。">regression</span> 检查，是防止“修 A 坏 B”。</p>
+        <div class="pattern-cards">
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-1)"><div class="pattern-icon" style="background:var(--color-actor-1)">🧪</div><h4 class="pattern-title">QA Verify</h4><p class="pattern-desc">验证行为，不只看代码形状。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-2)"><div class="pattern-icon" style="background:var(--color-actor-2)">🔍</div><h4 class="pattern-title">Code Review</h4><p class="pattern-desc">检查规范、一致性、可维护性。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-4)"><div class="pattern-icon" style="background:var(--color-actor-4)">🛡️</div><h4 class="pattern-title">Risk Vetter</h4><p class="pattern-desc">高影响动作前先分级再执行。</p></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实 QA 规则代码</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Validate behavior, not just code shape.</span>
+<span class="code-line">Treat QA as two-mode verification:</span>
+<span class="code-line">Static baseline: reason over code, diffs, existing tests, and available evidence</span>
+<span class="code-line">Dynamic verification: run tests or commands when the host environment allows it</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一句强调：不要只看代码像不像“正确答案”。</p>
+              <p class="tl">第二句说 QA 有静态与动态两种模式。</p>
+              <p class="tl">后两句给出实操：能跑就跑，不能跑也要基于证据推理。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module5">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，先风险分级并加护栏，才能避免高影响误操作。"
+            data-explanation-wrong="仓库约定是高风险动作前先 vet，再决定是否要求显式批准。">
+            <h3 class="quiz-question">你准备执行破坏性命令清理目录，第一步应是什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接执行并在 Retro 里说明</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>让 QA 先通过，再删除</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先走 risk-vetter 与 safety-guard</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

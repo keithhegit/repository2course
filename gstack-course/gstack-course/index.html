@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gstack 互动拆解课</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --color-accent: #3A8A63;
+      --color-accent-hover: #2D6F4E;
+      --color-accent-light: #E8F5EE;
+      --color-accent-muted: #6AAE8A;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text);
+      opacity: .85;
+    }
+    .repo-link:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">gstack 互动拆解课</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="产品价值" role="tab" aria-label="模块 1"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="关键组件" role="tab" aria-label="模块 2"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="数据流" role="tab" aria-label="模块 3"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="落地与风险" role="tab" aria-label="模块 4"></button>
+      </div>
+      <a class="repo-link" href="https://github.com/garrytan/gstack" target="_blank" rel="noopener" aria-label="Source Link">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38v-1.33c-2.22.49-2.69-1.07-2.69-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.72 1.24 1.89.88 2.35.67.07-.52.28-.88.5-1.08-1.77-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82A7.6 7.6 0 018 3.8c.68 0 1.36.09 2 .26 1.53-1.03 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.14.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      </a>
+    </div>
+  </nav>
+  <main id="main">
+
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品方法论</h1>
+      <p class="module-subtitle">gstack 不是“23 个命令合集”，而是一条把创意、评审、实现、测试、发布串成单一冲刺流水线的方法论系统。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">为什么它不是普通命令集合</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">/office-hours</span>
+<span class="code-line">/plan-ceo-review</span>
+<span class="code-line">/plan-eng-review</span>
+<span class="code-line">/review</span>
+<span class="code-line">/qa</span>
+<span class="code-line">/ship</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这组命令不是平铺摆放的工具箱，而是按冲刺顺序排列的角色链。</p>
+            <p class="tl">`/office-hours` 先把模糊需求改写成真正的问题定义，`/plan-*` 再把产品和工程前提锁死，后面的 `/review`、`/qa`、`/ship` 才不是盲修盲测。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对。gstack 的入口价值不在“先写代码”，而在先把问题重构成更值得做、也更可实现的版本。" data-explanation-wrong="关键不是先动手实现，而是先验证它的产品重构链是否成立。">
+            <h3 class="quiz-question">第一次判断 gstack 值不值得继续深挖，最该先跑哪条主路径？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接让它实现一个大功能，看写代码速度</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑 `/office-hours` 到 `/plan-ceo-review`，看它会不会重构问题定义</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先只看 `/ship` 会不会自动开 PR</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色协同与团队模式</h1><p class="module-subtitle">gstack 的关键不是“谁会写代码”，而是每个角色都消费上游产物并生成下游输入，像真实团队一样交接上下文。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">群聊动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">OFF</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">/office-hours</span><p>我先追问真实痛点，把“想做的功能”改写成“真正的产品工作”。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">CEO</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">/plan-ceo-review</span><p>我挑战范围和方向，找出这个需求背后更像 10-star 产品的版本。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">ENG</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">/plan-eng-review</span><p>我把愿景落到架构、状态机、失败路径和测试矩阵，防止实现阶段靠猜。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">QA</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">/qa</span><p>我用真实浏览器回归验证，并把 bug 修复与回归测试一起补上。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
+          <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">团队模式安装片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack</span>
+<span class="code-line">cd ~/.claude/skills/gstack && ./setup --team</span>
+<span class="code-line">~/.claude/skills/gstack/bin/gstack-team-init required</span>
+<span class="code-line">git add .claude/ CLAUDE.md</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这里体现的是“全员共享方法论”而不是把一堆提示词 vendoring 进仓库。</p>
+            <p class="tl">个人全局安装负责自动升级，项目内只保留最薄的一层接线配置，让团队里的 Claude Code 会话默认按同一套流程协作。</p>
+          </div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">浏览器底座与执行链路</h1><p class="module-subtitle">gstack 的方法论之所以能成立，是因为它不只是一堆 Markdown 技能；它还有一个低延迟、可持久化的浏览器运行时来支撑 QA、设计审查和网页调试。</p></header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">消息流</h2>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "Claude Code 触发 $B snapshot -i 或 /qa"}, {"highlight": "flow-actor-1", "label": "CLI 读取 .gstack/browse.json 并定位 daemon", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "编译后的 gstack 二进制 POST /command 到 Bun.serve", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "服务端通过 CDP 驱动持久 Chromium 并保留 cookies/tabs", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "结果以纯文本返回给上层技能，继续进入 review/qa/ship"}]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🤖</div><span>Claude Code</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧰</div><span>CLI Binary</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚡</div><span>Bun Server</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🌐</div><span>Chromium</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls"><button class="btn flow-next-btn">Next Step</button><button class="btn flow-reset-btn">Restart</button><span class="flow-progress"></span></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">为什么这个底座决定了课程价值</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">{ "pid": 12345, "port": 34567, "token": "uuid-v4", "binaryVersion": "abc123" }</span>
+<span class="code-line">Bun.serve()</span>
+<span class="code-line">Authorization: Bearer &lt;token&gt;</span>
+<span class="code-line">First call ~3s, later calls ~100-200ms</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">`browse.json` 是技能与浏览器之间的接线板，记录当前 daemon 的 PID、端口和鉴权令牌。</p>
+            <p class="tl">Bun 服务常驻后，后续 QA 与浏览器操作不必反复冷启动；这正是 gstack 能把“计划审查”和“真实浏览器验证”连成闭环的底层原因。</p>
+          </div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-4" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">4</span>
+      <h1 class="module-title">文档生成与安全治理</h1>
+      <p class="module-subtitle">gstack 的另一条底层主线是“让技能说明、评审门禁和高风险保护持续与代码同步”，否则整套 AI 工厂会很快漂移失真。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">SKILL.md.tmpl -&gt; gen-skill-docs.ts -&gt; SKILL.md</span>
+<span class="code-line">Review Readiness Dashboard</span>
+<span class="code-line">/careful</span>
+<span class="code-line">/freeze</span>
+<span class="code-line">/guard</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">模板系统负责避免技能文档和真实命令漂移，Dashboard 负责告诉你哪些审查已跑、哪些还欠账。</p>
+            <p class="tl">`/careful`、`/freeze`、`/guard` 则是在 AI 编码变快以后，用来约束误删、误改和越界写入的最后一道保险丝。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对。gstack 很清楚最危险的不是少一个命令，而是技能文档、真实实现和团队习惯开始互相漂移。" data-explanation-wrong="风险不在表面体验，而在 AI 流程一旦失去同步和门禁，就会产出越来越像真的错误操作。">
+            <h3 class="quiz-question">从长期维护看，gstack 最想防住的高阶风险是什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>按钮名称不够统一</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>技能文档、真实命令和团队流程逐步漂移，导致 AI 按过期规则工作</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>README 字体不够好看</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+</body>
+</html>
+

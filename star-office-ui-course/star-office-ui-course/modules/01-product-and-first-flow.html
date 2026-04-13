@@ -1,0 +1,68 @@
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">产品与一次状态切换</h1>
+      <p class="module-subtitle">先从用户视角出发：为什么这个像素办公室会“动起来”。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">你看到的不是“动画”，而是状态可视化</h2>
+        <p>把它想成机场大屏：每个航班状态变化，屏幕就更新。这里同理，AI 助手状态从 `idle` 变成 `writing` 时，角色就会移动到对应区域。状态可视化的关键是 <span class="term" data-definition="single source of truth 指系统所有界面都从同一份权威数据读取状态，避免不同页面显示不一致。">single source of truth</span>。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="step-num">1</div><div class="step-body"><strong>用户或脚本写入状态</strong><p>例如执行 `set_state.py writing`</p></div></div>
+          <div class="step-card"><div class="step-num">2</div><div class="step-body"><strong>后端读取 state.json</strong><p>并通过 `/status`、`/agents` 提供给前端</p></div></div>
+          <div class="step-card"><div class="step-num">3</div><div class="step-body"><strong>前端更新角色位置与气泡</strong><p>办公室中“谁在做什么”立刻可见</p></div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实代码：状态映射规则</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">VALID_AGENT_STATES = frozenset({"idle", "writing", "researching", "executing", "syncing", "error"})</span>
+<span class="code-line">STATE_TO_AREA_MAP = {</span>
+<span class="code-line">    "idle": "breakroom",</span>
+<span class="code-line">    "writing": "writing",</span>
+<span class="code-line">    "error": "error",</span>
+<span class="code-line">}</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一行定义了系统认可的合法状态词。</p>
+              <p class="tl">后面几行把“状态”翻译成“办公室区域”。</p>
+              <p class="tl">这样前后端就能用同一套字典说话。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-accent">
+          <div class="callout-icon">💡</div>
+          <div class="callout-content">
+            <strong class="callout-title">关键洞察</strong>
+            <p>UI 漂亮只是表层，真正有价值的是把“不可见的工作状态”变成可观察信号，这样你才能做协作管理。</p>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，先新增合法状态并补映射，前后端才会一致。"
+            data-explanation-wrong="如果只改前端文案，不改后端状态词表，会出现状态无法识别。">
+            <h3 class="quiz-question">你想新增 `meeting` 状态，第一步最应该做什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>只改前端气泡文案</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>更新合法状态集合和区域映射</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先替换所有像素素材</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

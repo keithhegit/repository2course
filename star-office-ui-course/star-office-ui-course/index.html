@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Office UI 互动拆解课</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --color-accent:       #E06B56;
+      --color-accent-hover: #C85A47;
+      --color-accent-light: #FDECEA;
+      --color-accent-muted: #E89585;
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title">Star Office UI 互动拆解课</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <button class="nav-dot" data-target="module-1" data-tooltip="产品与一次状态切换" role="tab" aria-label="模块 1"></button>
+        <button class="nav-dot" data-target="module-2" data-tooltip="前端像素办公室引擎" role="tab" aria-label="模块 2"></button>
+        <button class="nav-dot" data-target="module-3" data-tooltip="后端状态服务与接口" role="tab" aria-label="模块 3"></button>
+        <button class="nav-dot" data-target="module-4" data-tooltip="多 Agent 协作机制" role="tab" aria-label="模块 4"></button>
+        <button class="nav-dot" data-target="module-5" data-tooltip="配置安全与稳定性" role="tab" aria-label="模块 5"></button>
+        <button class="nav-dot" data-target="module-6" data-tooltip="部署与扩展路径" role="tab" aria-label="模块 6"></button>
+      </div>
+    </div>
+  </nav>
+  <main id="main">
+
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="module-title">产品与一次状态切换</h1>
+      <p class="module-subtitle">先从用户视角出发：为什么这个像素办公室会“动起来”。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">你看到的不是“动画”，而是状态可视化</h2>
+        <p>把它想成机场大屏：每个航班状态变化，屏幕就更新。这里同理，AI 助手状态从 `idle` 变成 `writing` 时，角色就会移动到对应区域。状态可视化的关键是 <span class="term" data-definition="single source of truth 指系统所有界面都从同一份权威数据读取状态，避免不同页面显示不一致。">single source of truth</span>。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="step-num">1</div><div class="step-body"><strong>用户或脚本写入状态</strong><p>例如执行 `set_state.py writing`</p></div></div>
+          <div class="step-card"><div class="step-num">2</div><div class="step-body"><strong>后端读取 state.json</strong><p>并通过 `/status`、`/agents` 提供给前端</p></div></div>
+          <div class="step-card"><div class="step-num">3</div><div class="step-body"><strong>前端更新角色位置与气泡</strong><p>办公室中“谁在做什么”立刻可见</p></div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实代码：状态映射规则</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">VALID_AGENT_STATES = frozenset({"idle", "writing", "researching", "executing", "syncing", "error"})</span>
+<span class="code-line">STATE_TO_AREA_MAP = {</span>
+<span class="code-line">    "idle": "breakroom",</span>
+<span class="code-line">    "writing": "writing",</span>
+<span class="code-line">    "error": "error",</span>
+<span class="code-line">}</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一行定义了系统认可的合法状态词。</p>
+              <p class="tl">后面几行把“状态”翻译成“办公室区域”。</p>
+              <p class="tl">这样前后端就能用同一套字典说话。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-accent">
+          <div class="callout-icon">💡</div>
+          <div class="callout-content">
+            <strong class="callout-title">关键洞察</strong>
+            <p>UI 漂亮只是表层，真正有价值的是把“不可见的工作状态”变成可观察信号，这样你才能做协作管理。</p>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，先新增合法状态并补映射，前后端才会一致。"
+            data-explanation-wrong="如果只改前端文案，不改后端状态词表，会出现状态无法识别。">
+            <h3 class="quiz-question">你想新增 `meeting` 状态，第一步最应该做什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>只改前端气泡文案</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>更新合法状态集合和区域映射</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先替换所有像素素材</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">前端像素办公室引擎</h1>
+      <p class="module-subtitle">核心是 Phaser 场景 + 布局配置，不是把坐标硬写在每个函数里。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">布局像“舞台调度表”</h2>
+        <p>`layout.js` 像舞台总控表，统一定义画布、区域、家具、层级。这样你要调位置时，只改一处配置。这里的 <span class="term" data-definition="depth 是 2D 场景里控制前后遮挡顺序的数值，值越大通常越靠前显示。">depth</span> 决定谁盖住谁。</p>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">const LAYOUT = {</span>
+<span class="code-line">  game: { width: 1280, height: 720 },</span>
+<span class="code-line">  areas: { writing: { x: 320, y: 360 }, error: { x: 1066, y: 180 } },</span>
+<span class="code-line">  furniture: { desk: { x: 218, y: 417, depth: 1000 } }</span>
+<span class="code-line">};</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先定义游戏舞台尺寸。</p>
+              <p class="tl">再定义“工作区/报错区”这些功能坐标。</p>
+              <p class="tl">最后定义家具位置和遮挡层级。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">角色间对话动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="ui" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">UI</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">game.js</span><p>我每 2 秒拉一次后端状态。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="layout" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">LY</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">layout.js</span><p>拿到状态后，用我的坐标表安排角色位置。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="bubble" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">💬</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Bubble Engine</span><p>我再补一句状态文案，让用户一眼看懂。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none">
+            <div class="chat-avatar" id="chat-module2-typing-avatar">?</div>
+            <div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module2">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，集中式布局配置能避免到处改魔法数字。"
+            data-explanation-wrong="若把坐标散落在多个函数，后续维护成本会飙升。">
+            <h3 class="quiz-question">你要整体右移工作区角色，最优先改哪类文件？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接改每个 sprite 的 update 逻辑</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>只改 README 里的说明文字</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改集中布局配置（如 LAYOUT.areas）</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module2')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module2')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-3" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">后端状态服务与接口</h1>
+      <p class="module-subtitle">Flask 后端负责“状态可信”和“页面可供给”，前端只做呈现。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">数据流动画：一次状态更新怎么走</h2>
+        <div class="flow-animation" data-steps='[
+          {"highlight":"flow-actor-1","label":"脚本执行 set_state.py"},
+          {"highlight":"flow-actor-1","label":"写入 state.json","packet":true,"from":"actor-1","to":"actor-2"},
+          {"highlight":"flow-actor-2","label":"Flask 通过 /status 读取","packet":true,"from":"actor-2","to":"actor-3"},
+          {"highlight":"flow-actor-3","label":"前端轮询并更新角色","packet":true,"from":"actor-3","to":"actor-4"},
+          {"highlight":"flow-actor-4","label":"用户看到角色移动与气泡变化"}
+        ]'>
+          <div class="flow-actors">
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">📝</div><span>set_state.py</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">📦</div><span>state.json</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>Flask API</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🕹️</div><span>Phaser UI</span></div>
+          </div>
+          <div class="flow-packet" id="flow-packet"></div>
+          <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
+          <div class="flow-controls">
+            <button class="btn flow-next-btn">Next Step</button>
+            <button class="btn flow-reset-btn">Restart</button>
+            <span class="flow-progress"></span>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实代码：轮询与返回</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">const FETCH_INTERVAL = 2000;</span>
+<span class="code-line">const response = await fetch('/yesterday-memo?t=' + Date.now(), { cache: 'no-store' });</span>
+<span class="code-line">@app.route("/status", methods=["GET"])</span>
+<span class="code-line">def get_status():</span>
+<span class="code-line">    state = load_state()</span>
+<span class="code-line">    return jsonify(state)</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">前端每隔固定时间拉取最新数据。</p>
+              <p class="tl">请求参数带时间戳，减少缓存干扰。</p>
+              <p class="tl">后端 `/status` 把当前状态直接返回成 JSON。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module3">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，页面看起来卡住往往先看状态文件是否被更新。"
+            data-explanation-wrong="先改像素素材通常不能解决状态不同步问题。">
+            <h3 class="quiz-question">你看到 UI 一直显示“待命中”，排查第一步更应该看？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>state.json 是否被脚本成功写入</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先替换全部前端字体</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接重做办公室背景图</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module3')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module3')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-4" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">多 Agent 协作机制</h1>
+      <p class="module-subtitle">这个项目最有意思的部分是“加入、鉴权、并发上限、离线回收”这一整套闭环。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">像门禁系统一样控制加入</h2>
+        <p>你可以把 join key 看成临时门票。后端会检查 key 是否有效、是否过期、当前并发是否超上限，再决定是否让新 Agent 进入办公室。这里的 <span class="term" data-definition="concurrency limit 是同一时刻允许同时在线的最大数量，用来防止系统被瞬时挤爆。">concurrency limit</span> 默认是 3。</p>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">max_concurrent = int(key_item.get("maxConcurrent", 3))</span>
+<span class="code-line">if active_count >= max_concurrent:</span>
+<span class="code-line">    return jsonify({"ok": False, "msg": f"该接入密钥当前并发已达上限（{max_concurrent}）"}), 429</span>
+<span class="code-line">target["authStatus"] = "approved"</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先读取这把 key 允许的并发人数。</p>
+              <p class="tl">如果当前活跃人数超限，直接拒绝并返回 429。</p>
+              <p class="tl">通过后才会把该 Agent 置为 approved。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">协作角色对话</h2>
+        <div class="chat-window" id="chat-module4">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="guest" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">AG</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">访客 Agent</span><p>我带着 join key 来加入办公室。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="api" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">API</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">/join-agent</span><p>先验 key，再检查并发与过期时间。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="push" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">↻</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">/agent-push</span><p>授权后你每 15 秒推一次状态就行。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module4-typing" style="display:none">
+            <div class="chat-avatar" id="chat-module4-typing-avatar">?</div>
+            <div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，先看 join key 并发与过期策略，避免误判成网络问题。"
+            data-explanation-wrong="多人无法进入通常先检查接入策略，而不是先改动画或贴图。">
+            <h3 class="quiz-question">团队反馈“第四个 Agent 总是进不来”，你先检查什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先删除所有历史 memo 文件</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>join key 的 maxConcurrent 与 active_count</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先替换猫咪素材</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-5" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">配置安全与稳定性</h1>
+      <p class="module-subtitle">这个仓库不只会“展示状态”，还做了生产环境的安全护栏和超时策略。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">生产模式会做硬校验</h2>
+        <p>可以把它想成登机前的安检门：不合规就不能起飞。项目在生产模式下会检查密钥强度、抽屉密码强度。<span class="term" data-definition="session cookie 是服务器给浏览器的会话凭证，用于识别当前登录状态。">session cookie</span> 也启用了基础加固。</p>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">app.config.update(</span>
+<span class="code-line">    SESSION_COOKIE_HTTPONLY=True,</span>
+<span class="code-line">    SESSION_COOKIE_SAMESITE="Lax",</span>
+<span class="code-line">    SESSION_COOKIE_SECURE=is_production_mode(),</span>
+<span class="code-line">)</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">会话 Cookie 禁止被前端脚本随便读取。</p>
+              <p class="tl">跨站传递行为被限制，降低被滥用概率。</p>
+              <p class="tl">生产环境要求更严格的 HTTPS 传输。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">稳定性不是“快”，而是“可恢复”</h2>
+        <div class="pattern-cards">
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-1)"><div class="pattern-icon" style="background:var(--color-actor-1)">⏱️</div><h4 class="pattern-title">自动回 idle</h4><p class="pattern-desc">状态长期不更新会自动回待命，避免界面“假忙碌”。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-2)"><div class="pattern-icon" style="background:var(--color-actor-2)">🧵</div><h4 class="pattern-title">异步任务轮询</h4><p class="pattern-desc">长任务走后台线程 + poll，减少网关超时问题。</p></div>
+          <div class="pattern-card" style="border-top:3px solid var(--color-actor-4)"><div class="pattern-icon" style="background:var(--color-actor-4)">🛟</div><h4 class="pattern-title">备份与回滚</h4><p class="pattern-desc">资产替换前保存 `.bak`，出问题能快速退回上一版。</p></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module5">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，生产模式卡住通常先看安全硬校验是否触发。"
+            data-explanation-wrong="如果是生产启动失败，优先看 secret 和密码强度，不是先调 UI。">
+            <h3 class="quiz-question">服务在生产环境启动即报错，最优先排查哪类配置？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>前端像素字体是否加载</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>猫咪气泡文案长度</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>FLASK_SECRET_KEY 与抽屉密码强度</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module5')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module5')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="module" id="module-6" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">部署与扩展路径</h1>
+      <p class="module-subtitle">最后把“能在本地跑”升级成“能稳定分享和协作”。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">从本地到公网的最小闭环</h2>
+        <p>这套项目给了两条路线：Cloudflare Tunnel 快速分享、或自有域名/反向代理长期运行。对协作团队更重要的是可观测性：`/health`、`/agents`、`/status` 要能稳定响应。</p>
+        <div class="badge-list">
+          <div class="badge-item"><code class="badge-code">GET /health</code><span class="badge-desc">看服务是否在线</span></div>
+          <div class="badge-item"><code class="badge-code">GET /agents</code><span class="badge-desc">看多 Agent 当前状态</span></div>
+          <div class="badge-item"><code class="badge-code">POST /set_state</code><span class="badge-desc">手动切换主状态用于演示/排障</span></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实代码：状态脚本入口</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">state_name = sys.argv[1]</span>
+<span class="code-line">if state_name not in VALID_STATES:</span>
+<span class="code-line">    print(f"无效状态: {state_name}")</span>
+<span class="code-line">state["state"] = state_name</span>
+<span class="code-line">state["updated_at"] = datetime.now().isoformat()</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">脚本先从命令行拿到状态参数。</p>
+              <p class="tl">再检查是不是允许的状态词。</p>
+              <p class="tl">最后写入状态和时间戳，供前端读取。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <div class="callout-icon">🧭</div>
+          <div class="callout-content">
+            <strong class="callout-title">你可以怎么扩展</strong>
+            <p>如果你要接入自己的 Agent 系统，只需要让它按约定周期调用 `/agent-push`，而不是改整套前端渲染逻辑。</p>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">毕业测验</h2>
+        <div class="quiz-container" id="quiz-module6">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，先验证服务和状态链路，再做装饰优化，风险最低。"
+            data-explanation-wrong="先做视觉改造会掩盖真实链路问题，排障更难。">
+            <h3 class="quiz-question">你要给团队上线一套办公室看板，最稳妥的顺序是？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先验证 /health 与状态推送，再做素材与装修</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先全量换美术，再排查状态接口</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接跳过后端，只保留静态页面</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module6')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module6')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品与价值</h1>
+      <p class="module-subtitle">Xget 不是简单的反向代理，而是按 Git、Docker、AI、标准 HTTP 等协议分叉处理的边缘加速引擎。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">One engine accelerates Git hosting, model hubs, package registries, container registries, and AI inference providers</span>
+<span class="code-line">Architecture splits requests into GitHandler, DockerHandler, AIHandler, and Standard Handler</span>
+<span class="code-line">Protocol-aware behavior covers HTTP/3, range requests, Git traffic, registry flows, and AI API compatibility</span>
+<span class="code-line">Security headers, request validation, and timeout protection are built into the request path</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">第一次拆 Xget，最该先抓哪条线？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先看所有平台徽章数量</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先看请求如何识别平台并分流到 Git/Docker/AI/标准处理器</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改默认站点主题</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

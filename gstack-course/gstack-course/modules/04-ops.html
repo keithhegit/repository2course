@@ -1,0 +1,43 @@
+<section class="module" id="module-4" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">4</span>
+      <h1 class="module-title">文档生成与安全治理</h1>
+      <p class="module-subtitle">gstack 的另一条底层主线是“让技能说明、评审门禁和高风险保护持续与代码同步”，否则整套 AI 工厂会很快漂移失真。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">SKILL.md.tmpl -&gt; gen-skill-docs.ts -&gt; SKILL.md</span>
+<span class="code-line">Review Readiness Dashboard</span>
+<span class="code-line">/careful</span>
+<span class="code-line">/freeze</span>
+<span class="code-line">/guard</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">模板系统负责避免技能文档和真实命令漂移，Dashboard 负责告诉你哪些审查已跑、哪些还欠账。</p>
+            <p class="tl">`/careful`、`/freeze`、`/guard` 则是在 AI 编码变快以后，用来约束误删、误改和越界写入的最后一道保险丝。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对。gstack 很清楚最危险的不是少一个命令，而是技能文档、真实实现和团队习惯开始互相漂移。" data-explanation-wrong="风险不在表面体验，而在 AI 流程一旦失去同步和门禁，就会产出越来越像真的错误操作。">
+            <h3 class="quiz-question">从长期维护看，gstack 最想防住的高阶风险是什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>按钮名称不够统一</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>技能文档、真实命令和团队流程逐步漂移，导致 AI 按过期规则工作</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>README 字体不够好看</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

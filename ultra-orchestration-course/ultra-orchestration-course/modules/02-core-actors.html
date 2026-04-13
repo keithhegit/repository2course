@@ -1,0 +1,87 @@
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">核心角色与分工</h1>
+      <p class="module-subtitle">这不是一个巨型 prompt，而是一组有边界的技能角色。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">像剧组一样分工</h2>
+        <p>可以把它想成拍电影：编剧管故事、导演管调度、后期管质检。仓库里每个 skill 都有明确职责，比如 <span class="term" data-definition="dispatch 指把可执行工作包分配到具体角色和路径，并处理冲突与依赖。">dispatch</span>、<span class="term" data-definition="QA 是质量验证阶段，关注行为是否符合预期，而不仅是代码看起来合理。">QA</span>、risk vetter。</p>
+        <div class="icon-rows">
+          <div class="icon-row"><div class="icon-circle" style="background:var(--color-actor-1)">🧭</div><div><strong>ultra-orchestrator</strong><p>主控状态机和阶段顺序</p></div></div>
+          <div class="icon-row"><div class="icon-circle" style="background:var(--color-actor-2)">🔗</div><div><strong>openspec-ultra-bridge</strong><p>把 OpenSpec 文档翻译为执行工件</p></div></div>
+          <div class="icon-row"><div class="icon-circle" style="background:var(--color-actor-3)">✅</div><div><strong>qa-verify / code-review</strong><p>分别看行为正确性与工程质量</p></div></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">角色对话动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="orchestrator" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-1)">UO</div>
+              <div class="chat-bubble"><span class="chat-sender" style="color: var(--color-actor-1)">Ultra-Orchestrator</span><p>我拿到任务了，先走 Intake 再 Plan。</p></div>
+            </div>
+            <div class="chat-message" data-msg="1" data-sender="bridge" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-2)">BR</div>
+              <div class="chat-bubble"><span class="chat-sender" style="color: var(--color-actor-2)">OpenSpec Bridge</span><p>收到，我会把 change-id 映射到 TaskManifest.id。</p></div>
+            </div>
+            <div class="chat-message" data-msg="2" data-sender="qa" style="display:none">
+              <div class="chat-avatar" style="background: var(--color-actor-3)">QA</div>
+              <div class="chat-bubble"><span class="chat-sender" style="color: var(--color-actor-3)">QA Verify</span><p>实现完成后我会做场景验证，不只看代码风格。</p></div>
+            </div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none">
+            <div class="chat-avatar" id="chat-module2-typing-avatar">?</div>
+            <div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">$clarify-and-intake for intake normalization</span>
+<span class="code-line">$decision-complete-planner for task graph creation</span>
+<span class="code-line">$dispatch-and-track for work package assignment and ledger updates</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先把用户需求“翻成可执行文本”。</p>
+              <p class="tl">再把任务拆成可依赖、可并行的图。</p>
+              <p class="tl">最后分发工作包并更新执行账本。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module2">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，路径重叠意味着写锁冲突，应该串行。"
+            data-explanation-wrong="关键点是 owned_paths 是否重叠，不是任务看起来是否独立。">
+            <h3 class="quiz-question">两个工作包都要改同一目录时，dispatch 最安全的做法是？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>继续并行，靠 git 冲突后再修</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>让 QA 先跑，跳过 dispatch 约束</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>标记写锁冲突并串行执行</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module2')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module2')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

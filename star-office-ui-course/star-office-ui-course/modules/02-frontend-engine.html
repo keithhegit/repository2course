@@ -1,0 +1,72 @@
+<section class="module" id="module-2" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">前端像素办公室引擎</h1>
+      <p class="module-subtitle">核心是 Phaser 场景 + 布局配置，不是把坐标硬写在每个函数里。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">布局像“舞台调度表”</h2>
+        <p>`layout.js` 像舞台总控表，统一定义画布、区域、家具、层级。这样你要调位置时，只改一处配置。这里的 <span class="term" data-definition="depth 是 2D 场景里控制前后遮挡顺序的数值，值越大通常越靠前显示。">depth</span> 决定谁盖住谁。</p>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">const LAYOUT = {</span>
+<span class="code-line">  game: { width: 1280, height: 720 },</span>
+<span class="code-line">  areas: { writing: { x: 320, y: 360 }, error: { x: 1066, y: 180 } },</span>
+<span class="code-line">  furniture: { desk: { x: 218, y: 417, depth: 1000 } }</span>
+<span class="code-line">};</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先定义游戏舞台尺寸。</p>
+              <p class="tl">再定义“工作区/报错区”这些功能坐标。</p>
+              <p class="tl">最后定义家具位置和遮挡层级。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">角色间对话动画</h2>
+        <div class="chat-window" id="chat-module2">
+          <div class="chat-messages">
+            <div class="chat-message" data-msg="0" data-sender="ui" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">UI</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">game.js</span><p>我每 2 秒拉一次后端状态。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="layout" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">LY</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">layout.js</span><p>拿到状态后，用我的坐标表安排角色位置。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="bubble" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">💬</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Bubble Engine</span><p>我再补一句状态文案，让用户一眼看懂。</p></div></div>
+          </div>
+          <div class="chat-typing" id="chat-module2-typing" style="display:none">
+            <div class="chat-avatar" id="chat-module2-typing-avatar">?</div>
+            <div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>
+          </div>
+          <div class="chat-controls">
+            <button class="btn chat-next-btn">Next Message</button>
+            <button class="btn chat-all-btn">Play All</button>
+            <button class="btn chat-reset-btn">Replay</button>
+            <span class="chat-progress"></span>
+          </div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module2">
+          <div class="quiz-question-block" data-correct="option-c" data-explanation-right="对，集中式布局配置能避免到处改魔法数字。"
+            data-explanation-wrong="若把坐标散落在多个函数，后续维护成本会飙升。">
+            <h3 class="quiz-question">你要整体右移工作区角色，最优先改哪类文件？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接改每个 sprite 的 update 逻辑</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>只改 README 里的说明文字</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改集中布局配置（如 LAYOUT.areas）</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module2')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module2')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

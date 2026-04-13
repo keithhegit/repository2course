@@ -1,0 +1,42 @@
+<section class="module" id="module-1" style="background: var(--color-bg-warm)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">1</span>
+      <h1 class="module-title">产品与价值</h1>
+      <p class="module-subtitle">它不是单一功能插件，而是一组按初始化顺序逐步挂到 Gemini 页面上的增强模块。</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">代码与规则片段</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
+<span class="code-line">Core features include timeline navigation, folders, prompt vault, cloud sync, export, formula copy, and visual effects</span>
+<span class="code-line">content/index.tsx initializes dozens of feature modules sequentially to avoid a thundering herd on restored tabs</span>
+<span class="code-line">Gemini and AI Studio share part of the feature stack while custom websites only get prompt manager</span>
+<span class="code-line">Folder and export systems preserve conversation structure beyond Gemini's native UI</span>
+          </code></pre></div>
+          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
+            <p class="tl">这一段是项目最值得先读懂的能力边界。</p>
+            <p class="tl">先确认主链路，再决定扩展与改造路径。</p>
+          </div></div>
+        </div>
+      </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用测验</h2>
+        <div class="quiz-container" id="quiz-module-1">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
+            <h3 class="quiz-question">理解 Gemini Voyager 的第一优先切入点是什么？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先看它的宣传 Banner</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先看 content/index.tsx 如何按顺序挂载时间线、文件夹、导出等模块</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先删掉所有延迟逻辑</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module-1')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module-1')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

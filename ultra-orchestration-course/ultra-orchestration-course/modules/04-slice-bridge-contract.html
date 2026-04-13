@@ -1,0 +1,69 @@
+<section class="module" id="module-4" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">状态与桥接契约</h1>
+      <p class="module-subtitle">Change 是账本单位，Slice 是施工单位，二者不能混用。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">为什么要硬性状态词表</h2>
+        <p>把它想成物流面单：每个包裹只能处于少数固定状态，才能被全链路系统识别。这里同理，<span class="term" data-definition="canonical status 是被系统约定的标准状态词，任何统计、自动化、报表都依赖它。">canonical statuses</span> 是自动同步的前提。</p>
+        <div class="badge-list">
+          <div class="badge-item"><code class="badge-code">slice_0_not_opened</code><span class="badge-desc">尚未打开实施</span></div>
+          <div class="badge-item"><code class="badge-code">slice_0_spec_ready</code><span class="badge-desc">规格已备齐，可进入实现</span></div>
+          <div class="badge-item"><code class="badge-code">slice_1_completed ... slice_4_done</code><span class="badge-desc">从实现完成到 QA 待审再到最终完成</span></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实桥接规则代码</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Map change-id to TaskManifest.id.</span>
+<span class="code-line">Map proposal summary to goal.</span>
+<span class="code-line">Map design constraints to constraints.</span>
+<span class="code-line">Map task acceptance criteria or spec delta checks to success_criteria and acceptance_checks.</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">先把变更编号绑定到执行任务主键。</p>
+              <p class="tl">再把提案摘要变成可执行目标。</p>
+              <p class="tl">把设计约束与验收规则转成机器可检字段。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-info">
+          <div class="callout-icon">🧩</div>
+          <div class="callout-content">
+            <strong class="callout-title">桥接不是替换</strong>
+            <p>bridge 的职责是“映射”，不是把 OpenSpec 全部重写成 Ultra 格式。这样才能保留长期文档资产。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速测验</h2>
+        <div class="quiz-container" id="quiz-module4">
+          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，状态推进需要验证证据，不能只在聊天里说完成。"
+            data-explanation-wrong="注意仓库强调 ledger 同步，口头更新不等于状态更新。">
+            <h3 class="quiz-question">某 slice 已改完代码但还没验证，状态最合理的是？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接标记 slice_4_done</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>保持在 completed / qa_pending 附近并补证据</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>删除状态字段，避免冲突</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module4')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module4')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

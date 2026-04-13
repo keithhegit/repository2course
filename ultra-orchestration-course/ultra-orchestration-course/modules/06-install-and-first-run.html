@@ -1,0 +1,69 @@
+<section class="module" id="module-6" style="background: var(--color-bg)">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">安装与实战启动</h1>
+      <p class="module-subtitle">最后把知识落到动作：如何装到 Cursor 并跑一个最小闭环。</p>
+    </header>
+
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">最短上手路径</h2>
+        <p>可以把安装看成“给你的 AI 助手装一组新插件”。先拷贝 skill 目录到全局路径，再刷新上下文。这里的 <span class="term" data-definition="global installation 指一次安装后，多个项目都能复用同一套技能目录。">global installation</span> 可以避免每个项目重复配置。</p>
+        <div class="step-cards">
+          <div class="step-card"><div class="step-num">1</div><div class="step-body"><strong>复制技能目录</strong><p>把核心 skill 文件夹复制到 `C:\Users\&lt;you&gt;\.cursor\skills\`</p></div></div>
+          <div class="step-card"><div class="step-num">2</div><div class="step-body"><strong>刷新 Cursor 上下文</strong><p>重启或刷新 agent context，让新技能被索引</p></div></div>
+          <div class="step-card"><div class="step-num">3</div><div class="step-body"><strong>跑单个 change 试点</strong><p>先做一个 bounded slice，验证效率与稳定性</p></div></div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">真实安装代码与解释</h2>
+        <div class="translation-block animate-in">
+          <div class="translation-code">
+            <span class="translation-label">CODE</span>
+            <pre><code>
+<span class="code-line">Copy-Item -Recurse -Force .\skills\ultra-orchestrator C:\Users\&lt;you&gt;\.cursor\skills\ultra-orchestrator</span>
+<span class="code-line">Then restart Cursor or refresh agent context.</span>
+<span class="code-line">edit/update skills in this repository</span>
+<span class="code-line">validate in a real project</span>
+            </code></pre>
+          </div>
+          <div class="translation-english">
+            <span class="translation-label">PLAIN ENGLISH</span>
+            <div class="translation-lines">
+              <p class="tl">第一行是“把技能复制到全局目录”的命令。</p>
+              <p class="tl">第二行提醒你必须刷新编辑器上下文。</p>
+              <p class="tl">后两行说明发布节奏：先改源码，再在真实项目验证。</p>
+            </div>
+          </div>
+        </div>
+        <div class="callout callout-warning">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-content">
+            <strong class="callout-title">常见误区</strong>
+            <p>只复制 skill 不刷新 context，经常会让你误以为“技能没生效”。先确认加载，再开始执行任务。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">毕业测验</h2>
+        <div class="quiz-container" id="quiz-module6">
+          <div class="quiz-question-block" data-correct="option-a" data-explanation-right="对，这是最小闭环：有规格边界、有执行证据、能复盘摩擦点。"
+            data-explanation-wrong="如果一次开太多 change，早期很难知道是流程问题还是范围过大。">
+            <h3 class="quiz-question">第一次在团队落地这套体系，哪个试点策略风险最低？</h3>
+            <div class="quiz-options">
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>单 change + 单 slice + 最小验证</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>一次打开全部里程碑并并行执行</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>跳过 QA，先追求速度</span></button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module6')">Check Answers</button>
+          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module6')">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
