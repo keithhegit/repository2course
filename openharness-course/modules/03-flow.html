@@ -1,15 +1,15 @@
 <section class="module" id="module-3" style="background: var(--color-bg-warm)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">OpenHarness 互动拆解课 的主执行链路。</p></header>
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">OpenHarness 互动拆解课 的执行链路来自仓库片段映射。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">消息流</h2>
-        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "读取状态与待办"}, {"highlight": "flow-actor-1", "label": "编排器决定下一位执行者", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "执行代理处理任务", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "结果交给评审与门禁", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "回写状态进入下一轮"}]'>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "One command: oh"}, {"highlight": "flow-actor-1", "label": "Agent loop: stream -> tool_use -> execute -> loo", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "43 tools + plugin ecosystem", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "ohmo personal agent built on top", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "OpenHarness 互动拆解课 完成一轮可观测闭环"}]'>
           <div class="flow-actors">
-            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">📄</div><span>State</span></div>
-            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>Orchestrator</span></div>
-            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🛠️</div><span>Agents</span></div>
-            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">✅</div><span>Review</span></div>
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🧩</div><span>One command</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>Agent loop</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>43 tools +</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🧾</div><span>ohmo personal agen</span></div>
           </div>
           <div class="flow-packet" id="flow-packet"></div>
           <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>

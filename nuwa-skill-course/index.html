@@ -80,11 +80,11 @@
         <h2 class="screen-heading">应用测验</h2>
         <div class="quiz-container" id="quiz-module-1">
           <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
-            <h3 class="quiz-question">接手 Nuwa Skill 互动拆解课，最优先验证哪条主链路？</h3>
+            <h3 class="quiz-question">如果你只能先看一条链路，Nuwa Skill 互动拆解课 应该先看哪条？</h3>
             <div class="quiz-options">
-              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先全量替换目录结构</span></button>
-              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑通 `npx skills add alchaincyf/nuwa-skill` 对应的最小可用路径</span></button>
-              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先做视觉重构后再看运行</span></button>
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先重命名全部模块</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑通 Input one name 相关主路径</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先上线再排查</span></button>
             </div>
             <div class="quiz-feedback"></div>
           </div>
@@ -98,16 +98,16 @@
 
 <section class="module" id="module-2" style="background: var(--color-bg)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">Nuwa Skill 互动拆解课 是证据驱动的技能生成流水线。</p></header>
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">Nuwa Skill 互动拆解课 的协作角色来自仓库真实片段，而非固定模板。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">群聊动画</h2>
         <div class="chat-window" id="chat-module2">
           <div class="chat-messages">
-            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">IN</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">Intake</span><p>我收集输入与上下文证据。</p></div></div>
-            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">AN</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Analyzer</span><p>我抽取结构化能力与边界。</p></div></div>
-            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">WR</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Writer</span><p>我生成可调用的技能文件。</p></div></div>
-            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">VR</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Versioning</span><p>我记录演进并支持回滚。</p></div></div>
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">INP</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">Input one name</span><p>我负责 Input one name -> auto research -> distill -> validate。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">SIX</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Six parallel resea</span><p>我处理 Six parallel research agents。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">TRI</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Triple verificatio</span><p>我推进 Triple verification before model inclusion。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">13</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">13人物 + 1主题示例仓库</span><p>我保障 13人物 + 1主题示例仓库。</p></div></div>
           </div>
           <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
           <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>
@@ -133,16 +133,16 @@
 
 <section class="module" id="module-3" style="background: var(--color-bg-warm)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">Nuwa Skill 互动拆解课 的主执行链路。</p></header>
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">Nuwa Skill 互动拆解课 的执行链路来自仓库片段映射。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">消息流</h2>
-        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "导入原始材料"}, {"highlight": "flow-actor-1", "label": "进入分析器抽取结构", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "生成技能内容", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "写入并归档版本", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "后续 correction 驱动迭代"}]'>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "Input one name -> auto research -> distill -> va"}, {"highlight": "flow-actor-1", "label": "Six parallel research agents", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "Triple verification before model inclusion", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "13人物 + 1主题示例仓库", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "Nuwa Skill 互动拆解课 完成一轮可观测闭环"}]'>
           <div class="flow-actors">
-            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">📥</div><span>Evidence Input</span></div>
-            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧠</div><span>Analyzer</span></div>
-            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🧩</div><span>Skill Builder</span></div>
-            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🗂️</div><span>Version Store</span></div>
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🧩</div><span>Input one name</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>Six parallel resea</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>Triple verificatio</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🧾</div><span>13人物 + 1主题示例仓库</span></div>
           </div>
           <div class="flow-packet" id="flow-packet"></div>
           <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
@@ -192,11 +192,11 @@
         <h2 class="screen-heading">应用测验</h2>
         <div class="quiz-container" id="quiz-module-4">
           <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
-            <h3 class="quiz-question">Nuwa Skill 互动拆解课 扩展前最该先做什么？</h3>
+            <h3 class="quiz-question">当 Nuwa Skill 互动拆解课 准备上线新能力时，先验证什么最关键？</h3>
             <div class="quiz-options">
-              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>并行改动所有模块</span></button>
-              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先建立边界检查、回归与回滚路径</span></button>
-              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接上线后再补风险控制</span></button>
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改颜色系统</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先验证失败路径和资源上限</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先忽略错误率</span></button>
             </div>
             <div class="quiz-feedback"></div>
           </div>

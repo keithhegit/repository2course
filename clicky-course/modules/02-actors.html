@@ -1,15 +1,15 @@
 <section class="module" id="module-2" style="background: var(--color-bg)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">Clicky 互动拆解课 的核心是命令分发链，而不是单点脚本。</p></header>
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">Clicky 互动拆解课 的协作角色来自仓库真实片段，而非固定模板。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">群聊动画</h2>
         <div class="chat-window" id="chat-module2">
           <div class="chat-messages">
-            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">IN</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">Input Parser</span><p>我解析命令参数并做校验。</p></div></div>
-            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">CM</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Command Core</span><p>我路由到具体子命令执行逻辑。</p></div></div>
-            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">EX</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Executor</span><p>我访问外部系统并返回结果。</p></div></div>
-            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">OUT</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Output Layer</span><p>我把结果格式化为 table/json。</p></div></div>
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">MAC</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">macOS menu bar</span><p>我负责 macOS menu bar app + overlay cursor。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">SPE</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Speech -> Assembly</span><p>我处理 Speech -> AssemblyAI -> Claude -> ElevenLabs。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">POI</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">POINT</span><p>我推进 POINT:x,y:label tags drive cursor movement。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">TWO</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Two NSPanel window</span><p>我保障 Two NSPanel windows: dropdown control + full-screen transparent overlay。</p></div></div>
           </div>
           <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
           <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>

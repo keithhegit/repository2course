@@ -80,11 +80,11 @@
         <h2 class="screen-heading">应用测验</h2>
         <div class="quiz-container" id="quiz-module-1">
           <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
-            <h3 class="quiz-question">接手 Agentshire 互动拆解课，最优先验证哪条主链路？</h3>
+            <h3 class="quiz-question">接手 Agentshire 互动拆解课 时，第一步最该确认什么？</h3>
             <div class="quiz-options">
-              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先全量替换目录结构</span></button>
-              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先跑通 `openclaw plugins install --link .` 对应的最小可用路径</span></button>
-              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先做视觉重构后再看运行</span></button>
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先统一 UI 主题和动画</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先验证 `openclaw plugins install --link .` 对应的最小可运行链路</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先拆目录再补文档</span></button>
             </div>
             <div class="quiz-feedback"></div>
           </div>
@@ -98,16 +98,16 @@
 
 <section class="module" id="module-2" style="background: var(--color-bg)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">Agentshire 互动拆解课 依赖状态驱动编排，而不是单次调用。</p></header>
+    <header class="module-header animate-in"><span class="module-number">02</span><h1 class="module-title">角色与模块协作</h1><p class="module-subtitle">Agentshire 互动拆解课 的协作角色来自仓库真实片段，而非固定模板。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">群聊动画</h2>
         <div class="chat-window" id="chat-module2">
           <div class="chat-messages">
-            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">OR</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">Orchestrator</span><p>我决定下一步由谁执行。</p></div></div>
-            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">AG</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Worker Agents</span><p>我执行实现、测试或修复任务。</p></div></div>
-            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">ST</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">State Store</span><p>我保存中间状态与报告。</p></div></div>
-            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">RV</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Review Gate</span><p>我做质量与风险门禁。</p></div></div>
+            <div class="chat-message" data-msg="0" data-sender="actor-1" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-1)">TOW</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-1)">Town Mode +</span><p>我负责 Town Mode + Chat Mode 双模式界面。</p></div></div>
+            <div class="chat-message" data-msg="1" data-sender="actor-2" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-2)">AGE</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-2)">Agent = NPC</span><p>我处理 Agent = NPC (每个子 Agent 自动映射为 3D 市民)。</p></div></div>
+            <div class="chat-message" data-msg="2" data-sender="actor-3" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-3)">CIN</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-3)">Cinematic workflow</span><p>我推进 Cinematic workflow: Summon -> Rally -> Assign -> Office -> Code -> Celebrate。</p></div></div>
+            <div class="chat-message" data-msg="3" data-sender="actor-4" style="display:none"><div class="chat-avatar" style="background:var(--color-actor-4)">BRI</div><div class="chat-bubble"><span class="chat-sender" style="color:var(--color-actor-4)">Bridge layer</span><p>我保障 Bridge layer: DirectorBridge phase state machine。</p></div></div>
           </div>
           <div class="chat-typing" id="chat-module2-typing" style="display:none"><div class="chat-avatar" id="chat-module2-typing-avatar">?</div><div class="chat-typing-dots"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
           <div class="chat-controls"><button class="btn chat-next-btn">Next Message</button><button class="btn chat-all-btn">Play All</button><button class="btn chat-reset-btn">Replay</button><span class="chat-progress"></span></div>
@@ -134,16 +134,16 @@
 
 <section class="module" id="module-3" style="background: var(--color-bg-warm)">
   <div class="module-content">
-    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">Agentshire 互动拆解课 的主执行链路。</p></header>
+    <header class="module-header animate-in"><span class="module-number">03</span><h1 class="module-title">数据流动画</h1><p class="module-subtitle">Agentshire 互动拆解课 的执行链路来自仓库片段映射。</p></header>
     <div class="module-body">
       <section class="screen animate-in">
         <h2 class="screen-heading">消息流</h2>
-        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "读取状态与待办"}, {"highlight": "flow-actor-1", "label": "编排器决定下一位执行者", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "执行代理处理任务", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "结果交给评审与门禁", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "回写状态进入下一轮"}]'>
+        <div class="flow-animation" data-steps='[{"highlight": "flow-actor-1", "label": "Town Mode + Chat Mode 双模式界面"}, {"highlight": "flow-actor-1", "label": "Agent = NPC (每个子 Agent 自动映射为 3D 市民)", "packet": true, "from": "actor-1", "to": "actor-2"}, {"highlight": "flow-actor-2", "label": "Cinematic workflow: Summon -> Rally -> Assign ->", "packet": true, "from": "actor-2", "to": "actor-3"}, {"highlight": "flow-actor-3", "label": "Bridge layer: DirectorBridge phase state machine", "packet": true, "from": "actor-3", "to": "actor-4"}, {"highlight": "flow-actor-4", "label": "Agentshire 互动拆解课 完成一轮可观测闭环"}]'>
           <div class="flow-actors">
-            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">📄</div><span>State</span></div>
-            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>Orchestrator</span></div>
-            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">🛠️</div><span>Agents</span></div>
-            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">✅</div><span>Review</span></div>
+            <div class="flow-actor" id="flow-actor-1"><div class="flow-actor-icon">🧩</div><span>Town Mode +</span></div>
+            <div class="flow-actor" id="flow-actor-2"><div class="flow-actor-icon">🧭</div><span>Agent = NPC</span></div>
+            <div class="flow-actor" id="flow-actor-3"><div class="flow-actor-icon">⚙️</div><span>Cinematic workflow</span></div>
+            <div class="flow-actor" id="flow-actor-4"><div class="flow-actor-icon">🧾</div><span>Bridge layer</span></div>
           </div>
           <div class="flow-packet" id="flow-packet"></div>
           <div class="flow-step-label" id="flow-label">点击 Next Step 开始</div>
@@ -197,11 +197,11 @@
         <h2 class="screen-heading">应用测验</h2>
         <div class="quiz-container" id="quiz-module-4">
           <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，优先建立最小可用认知链路，后续排障成本最低。" data-explanation-wrong="再想一步：先确保主路径可运行，才能定位真实瓶颈。">
-            <h3 class="quiz-question">Agentshire 互动拆解课 扩展前最该先做什么？</h3>
+            <h3 class="quiz-question">Agentshire 互动拆解课 进入多人协作后，哪个动作风险最低？</h3>
             <div class="quiz-options">
-              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>并行改动所有模块</span></button>
-              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先建立边界检查、回归与回滚路径</span></button>
-              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>直接上线后再补风险控制</span></button>
+              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>不做回滚方案直接变更</span></button>
+              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先定义门禁、观测、回滚三件套</span></button>
+              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>把告警全部静音</span></button>
             </div>
             <div class="quiz-feedback"></div>
           </div>
