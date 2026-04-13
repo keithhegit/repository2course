@@ -167,51 +167,6 @@
   </div>
 </section>
 
-<section class="module" id="module-4" style="background: var(--color-bg)">
-  <div class="module-content">
-    <header class="module-header animate-in">
-      <span class="module-number">04</span>
-      <h1 class="module-title">落地与风险控制</h1>
-      <p class="module-subtitle">把“会跑”升级成“可维护、可扩展、可协作”。</p>
-    </header>
-    <div class="module-body">
-      <section class="screen animate-in">
-        <h2 class="screen-heading">实践建议</h2>
-        <p>落地时先定义最小可验证闭环，再扩容功能。这里的 <span class="term" data-definition="operational risk 指在真实使用中导致服务中断、数据错误或维护成本激增的风险。">operational risk</span> 一般来自权限、依赖、并发和上下文漂移。</p>
-        <div class="translation-block animate-in">
-          <div class="translation-code"><span class="translation-label">CODE</span><pre><code>
-<span class="code-line">OPENCLI_DAEMON_PORT=19825</span>
-<span class="code-line">OPENCLI_BROWSER_COMMAND_TIMEOUT=60</span>
-<span class="code-line">OPENCLI_VERBOSE=1</span>
-<span class="code-line">OPENCLI_DIAGNOSTIC=1</span>
-          </code></pre></div>
-          <div class="translation-english"><span class="translation-label">PLAIN ENGLISH</span><div class="translation-lines">
-            <p class="tl">这是稳定运行时最常改的配置与策略。</p>
-            <p class="tl">先把这些边界想清楚，后续扩展会更稳。</p>
-          </div></div>
-        </div>
-      </section>
-      <section class="screen animate-in">
-        <h2 class="screen-heading">毕业测验</h2>
-        <div class="quiz-container" id="quiz-module4">
-          <div class="quiz-question-block" data-correct="option-b" data-explanation-right="对，先做最小闭环再扩展，是控制风险的标准做法。"
-            data-explanation-wrong="一次性铺太多功能，最容易在协作和回归上失控。">
-            <h3 class="quiz-question">你要把项目引入团队，哪种策略更稳妥？</h3>
-            <div class="quiz-options">
-              <button class="quiz-option" data-value="option-a" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先并行接入所有模块</span></button>
-              <button class="quiz-option" data-value="option-b" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先做一条最小主链路并设验收指标</span></button>
-              <button class="quiz-option" data-value="option-c" onclick="selectOption(this)"><div class="quiz-option-radio"></div><span>先改视觉，再补工程约束</span></button>
-            </div>
-            <div class="quiz-feedback"></div>
-          </div>
-          <button class="quiz-check-btn" onclick="checkQuiz('quiz-module4')">Check Answers</button>
-          <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module4')">Try Again</button>
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
-
 <section class="module" id="module-4" style="background: var(--color-bg-warm)">
   <div class="module-content">
     <header class="module-header animate-in">
